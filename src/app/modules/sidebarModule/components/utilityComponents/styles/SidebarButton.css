@@ -1,0 +1,42 @@
+@import url('../../../../../../_metronic/assets/css/global.css');
+
+.sideBarContinueBtnContainer {
+    display: flex;
+    height: 90px;
+    flex-direction: column;
+    gap: 13px;
+    align-self: stretch;
+    position: sticky;
+    background: #fff;
+    padding: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+.sideBarContinueBtnContainer button {
+    height: 65px !important;
+    background: black;
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    gap: 10px;
+    border-radius: 0;
+    font-family: var(--suissecond-int-normal);
+}
+
+.tNcCondition {
+    text-align: left;
+    color: var(--Primary-Black-100, #020202);
+    font-family: Montserrat;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.termsLink {
+    text-decoration: none;
+}

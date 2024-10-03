@@ -1,0 +1,155 @@
+@import url('../../../../_metronic/assets/css/global.css');
+
+
+.headerPlanSection {
+    height: 72px;
+    display: flex;
+    justify-content: center;
+}
+
+p.headerPlan {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 4px;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.top, .bottom {
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.imagePlanSection {
+    margin: 0 16px 24px;
+}
+
+.homeMealImage {
+    width: 100%;
+}
+
+.descriptionPlanSection {
+    margin: 0px 16px 17px;
+    height: 150px;
+    text-align: center;
+}
+
+.descriptionPlan {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    letter-spacing: 1px;
+    line-height: 20px;
+}
+
+.planContentSection {
+    margin: 0 16px 17px;
+}
+
+.lunchDinnerSection {
+    margin-bottom: 23px;
+}
+
+.sectionContentsHeaderMeal {
+    font-size: 12px;
+    letter-spacing: 0;
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sectionContentsHeaderMeal:after {
+    content: '';
+    background: #E6E6E6;
+    height: 1px;
+    flex: 1;
+}
+
+.sectionContentsHeaderMeal span {
+    background: #fff;
+    margin: 0 45px 0 0;
+}
+
+.nutritionsPlan {
+    margin: 0 42px 0 43px;
+}
+
+.nutritionDescPlan {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    line-height: 26px;
+    opacity: 0.6;
+    font-weight: 300;
+}
+
+.nutritionValuePlan {
+    font-size: 24px;
+    line-height: 26px;
+    font-weight: 400;
+    font-family: var(--suisse-works-regular);
+}
+
+.breakFastSection {
+    margin-bottom: 24px;
+}
+
+.sectionMacroDesc {
+    text-align: center;
+    font-size: 12px;
+    line-height: 26px;
+    font-weight: 300;
+    opacity: 0.6;
+    margin-bottom: 24px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.planGetStartedSection {
+    /* position: absolute; */
+    width: 93%;
+    bottom: 0;
+    margin: 0 16px;
+    padding: 16px 0;
+    border-top: 1px solid #E6E6E6;
+    z-index: 1;
+}
+
+.planGetStartedSection .startPlanBtn {
+    width: 100%;
+    margin: 0 auto;
+    font-size: 13px;
+    /* background: #66b83d; */
+    color: white;
+    border: none;
+    height: 50px;
+    border-radius: 0;
+    align-items: center;
+    cursor: pointer;
+    background: #000000;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+}
+
+.startPlanBtn:hover {
+    /* background: #549d2f; */
+    background-color: #fff;
+    color: black;
+    border: 2px solid #000000;
+    transition: 200ms;
+}
+
+.slick-track {
+    display: flex;
+    gap: 24px;
+}
+
+.homeMealPlanContainer {
+    background-color: #fff;
+}
+
+.slick-prev, .slick-next {
+    width: 48px;
+    height: 48px;
+}

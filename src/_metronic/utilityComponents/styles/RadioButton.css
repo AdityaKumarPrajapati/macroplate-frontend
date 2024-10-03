@@ -1,0 +1,30 @@
+@import url('../../assets/css/global.css');
+
+.customRadioBtn input {
+    height: 24px;
+    width: 24px;
+    border-radius: 100px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    border: 2px solid #9A9A9A;
+    cursor: pointer;
+    margin: 0;
+}
+
+.customRadioBtn input:checked {
+    background-color: #fff;
+    border-color: #0AAB65;
+}
+
+.customRadioBtn input:checked::before {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    margin: 5px;
+    background-color: #0AAB65;
+    border-radius: 50%;
+}
+

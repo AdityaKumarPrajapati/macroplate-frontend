@@ -1,0 +1,87 @@
+@import url('../../../_metronic/assets/css/global.css');
+
+.navBarComponentsWrapper {
+  position: sticky !important;
+    top: 0;
+    width: 100%;
+    background: #fff;
+    z-index: 999;
+}
+
+.navBarWrapper {
+  /* position: sticky;
+  top: 0;
+  z-index: 999;
+  background-color: var(--primary-white); */
+}
+
+.navBarComponents {
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+}
+
+.navbar {
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-container {
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+  gap: 100px;
+}
+
+.nav-logo {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  gap: 48px;
+}
+
+.nav-links {
+  color: black;
+  text-decoration: none;
+  font-size: 12px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links:hover {
+  /* color: #ddd; */
+}
+
+.getStartedBtn {
+  padding: 12px 30px 10px;
+  border: 2px solid #000000;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 0;
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--primary-white);
+  cursor: pointer;
+  text-decoration: none;
+  color: #000;
+}
+
+.getStartedBtn:hover {
+  background-color: #000000;
+  color: #fff;
+  border: 2px solid #000000;
+  transition: 200ms;
+}

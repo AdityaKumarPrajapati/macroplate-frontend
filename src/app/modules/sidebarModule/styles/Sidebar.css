@@ -1,0 +1,90 @@
+@import url('../../../../_metronic/assets/css/global.css');
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    cursor: pointer;
+}
+
+.sidebarWrapper {
+    position: fixed;
+    /* right: 0; */
+    right: -100%;
+    top: 0;
+    width: 554px;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transform: translateX(100%);
+    opacity: 0;
+    /* transition: transform 0.3s ease-in-out; */
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    overflow-y: auto;
+}
+
+.sidebarWrapper.open {
+    opacity: 1;
+    right: 0;
+    transform: translateX(0);
+    /* Bring sidebar on-screen */
+}
+
+.sidebarWrapper.closed {
+    transform: translateX(100%);
+    /* Move sidebar off-screen */
+}
+
+
+.step-1 {
+    padding: 24px;
+}
+
+.step-2 {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    height: 100%;
+}
+
+.mealDay,
+.mealDaySelectionContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.step2Wrapper,
+.step3Wrapper {
+    padding: 24px 24px 24px 24px;
+    /* height: 100%; */
+}
+
+.backBtnSvgContainer {
+    text-align: left;
+    margin: 0 0 16px 0;
+}
+
+hr {
+    margin: 0;
+}
+
+.error-text {
+    text-align: left;
+    font-size: 13px;
+    color: red;
+    margin-bottom: 0px;
+    text-transform: capitalize;
+    line-height: normal;
+}
+
+.mealSelectionWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}

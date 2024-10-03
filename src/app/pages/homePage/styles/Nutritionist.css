@@ -1,0 +1,78 @@
+@import url('../../../../_metronic/assets/css/global.css');
+
+.nutritionContainer {
+    background-image: url('../../../../../public/images/personal-chef.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    padding: 130px 0;
+}
+
+.nutritionContentContainer {
+    background-color: var(--secondary-white);
+    padding: 80px;
+}
+
+.personalChefContentContainer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.personalChefContentSection1 {
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+    width: 47%;
+}
+
+.presonalChefText {
+    font-size: 64px;
+    line-height: 75px;
+    color: var(--primary-text-black-color);
+    text-align: left;
+    font-family: var(--suisse-works-regular);
+}
+
+.personalChefContentSection1 button {
+    background-color: var(--default-black);
+    font-size: 32px;
+    letter-spacing: 3px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    color: #FFF;
+    width: 614px;
+    height: 106px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.personalChefContentSection2 {
+    display: flex;
+    padding-left: 100px;
+    width: 53%;
+    justify-content: end;
+    gap: 72px;
+}
+
+.personalChefIconSection {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 97px;
+}
+
+.personalChefIconText {
+    text-align: center;
+    font-size: 14px;
+    letter-spacing: 1px;
+    line-height: 19px;
+    color: var(--default-black);
+    font-family: var(--suisse-int-semibold);
+}

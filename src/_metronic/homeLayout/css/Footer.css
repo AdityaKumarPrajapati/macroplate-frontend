@@ -1,0 +1,78 @@
+@import url('../../../_metronic/assets/css/global.css');
+
+.footerContainer {
+    display: flex;
+    padding: 62px 0 48px 0;
+    justify-content: space-between;
+}
+
+.footerContainerWrapper li {
+    list-style: none;
+    text-align: left;
+    display: flex;
+    align-items: center;
+}
+
+.footerSection {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.footerContainerWrapper a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #000;
+    font-weight: 500;
+    line-height: 34px;
+}
+
+.footerContainerWrapper ul.footerContent {
+    display: flex;
+    flex-direction: column;
+}
+
+.footerTitle {
+    color: #8B8888;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+    text-align: left;
+}   
+
+.lastSection {
+    margin-top: 34px;
+}
+
+.custAsst {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 34px;
+    color: #8B8888;
+}
+
+.socialMediaContainer {
+    padding: 44px 0;
+    display: flex;
+    justify-content: space-between;
+    border-top: 2px solid #C2C2C2;
+}
+
+.policyContainer, .socialMediaIcons {
+    display: flex;
+    gap: 17px;
+}
+
+.policyContainer li a {
+    border-right: 1px solid #8B8888;
+    padding-right: 15px;
+    font-size: 12px;
+    line-height: 16px;
+    color: #8B8888;
+}
+
+.policyContainer li:nth-child(3) a {
+    border: none;
+}

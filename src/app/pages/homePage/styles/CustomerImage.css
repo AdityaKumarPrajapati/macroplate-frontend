@@ -1,0 +1,28 @@
+@import url('../../../../_metronic/assets/css/global.css');
+
+.customerImageContainer {
+    background-color: rgba(10, 171, 101, 0.102);
+}
+
+.customerImageContainerWrapper {
+    display: flex;
+}
+
+.customerImageWrapper {
+    width: 50%;
+}
+
+.customerImageWrapper img {
+    width: 100%;
+}
+
+.customerImage1 {
+    margin-right: -50px;
+}
+
+.customerImage2 {
+    position: relative;
+    margin-top: 55px;
+    margin-left: -50px;
+}
+

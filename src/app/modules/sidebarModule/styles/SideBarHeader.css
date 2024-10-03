@@ -1,0 +1,53 @@
+@import url('../../../../_metronic/assets/css/global.css');
+
+.sideBarHeaderWrapper {
+    background-color: #EAE5E0;
+    position: sticky;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    height: 75px;
+}
+
+.sideBarHeaderContainer {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    gap: 19px;
+    align-items: center;
+}
+
+.toprightCloseIconCheckout {
+    position: absolute;
+    top: 13px;
+    right: 22px;
+    font-size: 28px;
+    color: black;
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+}
+
+.statusBarHeadetText {
+    color: var(--Universal-Colors-Black, #000);
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: uppercase;
+}
+
+.statusBar {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+}
+
+.statusBar svg {
+    display: flex;
+    width: 100%;
+}

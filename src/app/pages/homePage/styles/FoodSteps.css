@@ -1,0 +1,65 @@
+@import url('../../../../_metronic/assets/css/global.css');
+
+.foodStepsContainer {
+    background-color: rgba(10, 171, 101, 0.102);
+    padding-top: 130px;
+}
+
+.foodStepsWrapper {
+    padding: 0;
+    position: relative;
+    padding: 64px 0;
+}
+
+.foodStepsLine {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.foodStepsLine::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    border-bottom: 10px solid var(--default-black);
+    left: 23px;
+    width: 98%;
+    top: 40%;
+}
+
+.iconContainer svg {
+    background-color: white;
+    border-radius: 100%;
+}
+
+span.lineBullets::before,
+span.lineBullets::after {
+    content: '';
+    border-radius: 50%;
+    position: absolute;
+    border: 13px solid;
+    top: 37%;
+}
+
+span.lineBullets::before {
+    left: 0;
+}
+
+span.lineBullets::after {
+    right: 0;
+}
+
+.iconContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.iconContainer p {
+    letter-spacing: 2px;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: var(--primary-text-black-color);
+    opacity: 0.8;
+    line-height: normal;
+}

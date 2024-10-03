@@ -1,0 +1,66 @@
+@import url('../../assets/css/global.css');
+
+
+h4 {
+    margin-top: 0;
+    margin-bottom: 50px;
+}
+
+.quantity {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    height: 46px;
+}
+
+.quantity__minus,
+.quantity__plus {
+    width: 27px;
+    height: 100%;
+    margin: 0;
+    text-decoration: none;
+    text-align: center;
+    line-height: 23px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ccc;
+    color: grey;
+}
+
+.quantity__input {
+    width: 42px;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #8184a1;
+}
+
+.quantity__minus:link,
+.quantity__plus:link {
+    color: #8184a1;
+}
+
+.priceLabel {
+    font-size: 13px;
+    width: 100%;
+    text-transform: capitalize;
+    padding-bottom: 2px;
+    font-style: italic;
+    color: #838485;
+    text-align: right;
+}
+
+.addonLabel {
+    align-items: self-start;
+    letter-spacing: .2px;
+    opacity: 0.600;
+    color: #04253c;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    line-height: 1.2;
+}

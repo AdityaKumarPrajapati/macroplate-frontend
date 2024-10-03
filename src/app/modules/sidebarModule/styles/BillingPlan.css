@@ -1,0 +1,7 @@
+@import url('../../../../_metronic/assets/css/global.css');
+
+.billingPlanPageContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}

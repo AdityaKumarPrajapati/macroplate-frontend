@@ -1,0 +1,61 @@
+@import url('../../assets/css/global.css');
+
+.checkBoxContainer {
+    display: flex;
+    gap: 9px;
+}
+
+.customCheckboxBtn input {
+    width: 24px;
+    height: 24px;
+    border-radius: 2px !important;
+    position: relative;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+    border: 2px solid #9A9A9A;
+    cursor: pointer;
+    margin: 0;
+}
+
+.customCheckboxBtn input:checked {
+    /* color: #549d2f; */
+    background-color: #549d2f;
+    border-color: #0AAB65;
+}
+
+.customCheckboxBtn input:checked::before {
+    content: '';
+    display: block;
+    background: #0AAB65;
+    filter: none;
+    height: 24px;
+    width: 24px;
+    border-radius: 2px;
+    margin: -2px;
+    position: absolute;
+}
+
+.customCheckboxBtn input:checked::after {
+    content: '';
+    height: 7px;
+    width: 16px;
+    position: absolute;
+    border: 2px solid #ffffff;
+    transform: rotate(-40deg);
+    border-width: 0 0 3px 3.1px;
+    top: 5px;
+    left: 2px;
+}
+
+.formLabel {
+    color: var(--Secondary-Blue-70, #4F6677);
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    display: flex;
+    align-items: center;
+}

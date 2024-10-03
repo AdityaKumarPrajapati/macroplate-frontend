@@ -1,0 +1,120 @@
+@import url('../../../../_metronic/assets/css/global.css');
+
+.home {
+  /* padding: 2rem; */
+  text-align: center;
+}
+
+.home-banner {
+  background-color: #f8f8f8;
+  padding: 4rem;
+  border-radius: 8px;
+}
+
+.home-banner h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+.home-banner p {
+  font-size: 1.25rem;
+  color: #555;
+}
+
+
+.homePageBannerWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 600px;
+  background: #04253C;
+}
+
+.bannerImage,
+.bannerContent {
+  height: 100%;
+  width: 50%;
+}
+
+.bannerContent .bannerContentContainer {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 52px;
+}
+
+.bannerImage img {
+  height: 100%;
+  width: 100%;
+}
+
+/* .bannerImage {
+    margin: 0 auto;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+    background-image: url('../../asset/images/bnr_img.png');
+    background-position: 0 75%;
+    background-repeat: no-repeat;
+    background-size: cover;
+  } */
+
+.homePageBanner {
+  font-weight: 400;
+  line-height: 67px;
+  font-size: 52px;
+  color: #fff;
+  /* height: 100%; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin: 0 17%; */
+  font-family: 'SuisseWorks-Regular-WebS';
+}
+
+.mealPlanHowItWorksContainer {
+  background-color: rgba(10, 171, 101, 0.102);
+  padding-bottom: 80px;
+}
+
+.mealPlanSliderDescContainer {
+  padding-top: 64px;
+  margin-bottom: 85px;
+}
+
+.thoughtFullyCookedText {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 22px;
+  letter-spacing: 4px;
+  font-family: 'Montserrat', sans-serif;
+  color: var(--default-black);
+  margin-bottom: 35px;
+}
+
+.ourMealPlanText {
+  color: var(--primary-text-black-color);
+  font-size: 52px;
+  letter-spacing: 0px;
+  font-weight: 400;
+  line-height: normal;
+  font-family: var(--suisse-works-regular);
+  margin-bottom: 35px;
+}
+
+.ourMealPlanTextDesc {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 35px;
+  font-family: 'Montserrat', sans-serif;
+  color: var(--default-black);
+  margin: 0 454px 0 452px;
+}
+
+@media all and (max-width: 1440px) {
+  .container {
+    max-width: 95%;
+  }
+}

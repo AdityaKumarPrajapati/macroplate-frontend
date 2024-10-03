@@ -1,0 +1,63 @@
+@import url('../../assets/css/global.css');
+
+.faqContainer {
+    padding: 65px 0 95px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 55px;
+}
+
+.faqWrapper {
+    padding: 0;
+}
+
+.faqText {
+    line-height: normal;
+    color: var(--primary-text-black-color);
+    font-size: 52px;
+    font-weight: 100;
+    font-family: var(--suisse-works-regular);
+    text-align: center;
+}
+
+.accordionItemHeader {
+    color: var(--default-black);
+    font-size: 20px;
+    cursor: pointer;
+    font-family: var(--suisse-works-regular);
+    padding: 20px 30px 20px 0px;
+    width: 100%;
+    text-align: left;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.accordionItemHeader button {
+    font-size: 20px;
+}
+
+.accordionItemHeader button:not(.collapsed) {
+    background-color: #fff;
+    box-shadow: none;
+    color: var(--default-black);
+}
+
+.accordionContent {
+    color: var(--default-black);
+    line-height: 26px;
+    letter-spacing: 0;
+    font-weight: 400;
+    font-size: 15px;
+    font-family: 'Montserrat', sans-serif;
+    text-align: left;
+}
+
+.accordion-item {
+    border-bottom: 2px solid black;
+    border-radius: 0 !important;
+    border-right: none;
+    border-left: none;
+    background-color: #fff;
+}
+

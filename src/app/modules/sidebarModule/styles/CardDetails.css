@@ -1,0 +1,96 @@
+@import url('../../../../_metronic/assets/css/global.css');
+
+.card-details-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.expiry-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+#card-number, #card-expiry, #card-cvc {
+    padding: 18px;
+    border-radius: 0;
+    border: 1px solid #9A9A9A;
+    width: 100%;
+}
+
+#card-number:focus, #card-expiry:focus, #card-cvc:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+}
+
+.submit-button {
+    background-color: #4a90e2;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.submit-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.card-details-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+}
+
+.card-details-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card-number-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.card-number {
+    flex: 1;
+}
+
+.card-brand-icon {
+    position: absolute;
+    right: 10px; /* Adjust positioning */
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px; /* Adjust size as needed */
+    color: #000; /* Adjust color as needed */
+}
+
+.card-brand-icon.fab.fa-cc-visa {
+    color: #1A1F71; /* Default Visa color */
+}
+
+.card-brand-icon.fab.fa-cc-mastercard {
+    color: #FF5F00; /* Default Mastercard color */
+}
+
+.card-brand-icon.fab.fa-cc-amex {
+    color: #2D72D9; /* Default American Express color */
+}
+
+.card-brand-icon.fab.fa-cc-discover {
+    color: #FF6F00; /* Default Discover color */
+}
+
+
+.expiry-cvc-container {
+    display: flex;
+    gap: 24px;
+}

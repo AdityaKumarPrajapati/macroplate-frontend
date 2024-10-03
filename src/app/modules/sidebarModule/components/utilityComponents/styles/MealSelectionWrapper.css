@@ -1,0 +1,65 @@
+@import url('../../../../../../_metronic/assets/css/global.css');
+
+.mealSelectionContentContainer {
+    display: flex;
+    gap: 20px;
+    text-align: left;
+}
+
+.mealSelectionContentText {
+    width: 50%;
+}
+
+.addonSelectionContentText {
+    width: 35%;
+}
+
+.mealSelectionContentData {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.radioBtnContainer {
+    display: flex;
+    gap: 9px;
+}
+
+.radioBtnAccordionContainer {
+    display: block;
+    width: 100%;
+}
+
+.mealSelectionLabel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--black, #020202);
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    cursor: pointer;
+}
+
+.mealSelectionContentText p {
+    color: #84929E;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.dietaryExclisionsContentDesc {
+    font-size: 12px;
+    opacity: .6;
+    margin-top: -0.25rem;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}

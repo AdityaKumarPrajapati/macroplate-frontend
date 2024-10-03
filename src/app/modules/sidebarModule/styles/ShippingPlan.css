@@ -1,0 +1,55 @@
+@import url('../../../../_metronic/assets/css/global.css');
+
+.shippingPlanWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.personalInfoWrapper,
+.deliveryInfoWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.personalInfoText {
+    color: var(--Secondary-Blue-70, #4F6677);
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-align: left;
+}
+
+.personalInfoContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 50%;
+}
+
+.phoneNumberContainer {
+    width: 100%;
+}
+
+.step2InputBoxContainerWrapper, 
+.cityStateZipContainer {
+    display: flex;
+    gap: 24px;
+}
+
+.addressContainer {
+    width: 66.6667%;
+}
+
+.suiteContainer {
+    width: 33.333%;
+}
+
+.nextDeliveryDropdownContainer {
+    margin-bottom: 50px;
+}

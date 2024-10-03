@@ -1,0 +1,53 @@
+@import url('../../assets/css/global.css');
+
+.textAreaInputContainer .input-group {
+    height: auto;
+}
+
+.textAreaInputContainer .input-group textarea {
+    margin-bottom: 0;
+    color: #838485;
+    box-shadow: none;
+    font-weight: 500;
+    font-size: 16px;
+    width: 100%;
+    padding: 0;
+    background: transparent;
+    border: none;
+    resize: none;
+}
+
+.input-group textarea:not(:placeholder-shown)+label {
+    /* top: 0; */
+    transition: 0.5s;
+    color: #838485;
+    background: #fff;
+    opacity: 1;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.input-group textarea:focus+label {
+    top: 0;
+    transition: 0.5s;
+    color: #838485;
+    background: #fff;
+    opacity: 1;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.input-group textarea::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    opacity: 0;
+}
+
+.input-group textarea:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    opacity: 0;
+}
+
+.input-group textarea::-ms-input-placeholder {
+    /* Microsoft Edge */
+    opacity: 0;
+}

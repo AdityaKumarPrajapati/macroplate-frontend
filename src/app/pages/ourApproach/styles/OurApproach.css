@@ -1,0 +1,230 @@
+@import url('../../../../_metronic/assets/css/global.css');
+
+.ourApproachTittle {
+    background: rgba(10, 171, 101, 0.102);
+    padding: 44px 0;
+    text-align: center;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.ourApproachHeading {
+    font-size: 44px;
+    font-weight: 100;
+    line-height: 55px;
+    font-family: var(--suisse-works-regular);
+}
+
+.ourApproachDescription {
+    max-width: 45%;
+    margin: 0 auto !important;
+}
+
+.ourApproachDescription p {
+    font-weight: 300;
+    color: var(--default-black);
+    font-size: 24px;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 45px;
+}
+
+.ourApproachdetail {
+    font-size: 20px;
+    line-height: 40px;
+}
+
+.imageText {
+    line-height: 0;
+    font-size: 54px !important;
+}
+
+.sustainableImage,
+.reducingImage,
+.leaveNoTraceImage,
+.offsettingEmmissionsImage {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    padding: 209px 0;
+    margin-bottom: 45px;
+    color: var(--primary-white);
+    text-align: center;
+    position: relative;
+    font-weight: 600;
+    background-color: rgb(4, 37, 60, 0.3);
+}
+
+.sustainableImage::before,
+.reducingImage::before,
+.leaveNoTraceImage::before,
+.offsettingEmmissionsImage::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Adjust the opacity for the shade effect */
+    z-index: 1;
+}
+
+.sustainableImage *,
+.reducingImage *,
+.leaveNoTraceImage *,
+.offsettingEmmissionsImage * {
+    position: relative;
+    z-index: 2;
+    /* Ensure text is above the shaded overlay */
+}
+
+.sustainableImage::after,
+.reducingImage::after,
+.leaveNoTraceImage::after,
+.offsettingEmmissionsImage::after {
+    content: '';
+    position: absolute;
+    border-right: 10px solid var(--primary-green);
+    border-bottom: 10px solid var(--primary-green);
+    width: calc(100% - 0px);
+    height: calc(100% - 0px);
+    top: 10px;
+    left: 10px;
+}
+
+.sustainableImage {
+    background-image: url('../../../../../public/images/sustainable-source.jpg');
+}
+
+.reducingImage {
+    background-image: url('../../../../../public/images/reducing-waste.jpg');
+}
+
+.leaveNoTraceImage {
+    background-image: url('../../../../../public/images/leaving-no-trace.jpg');
+}
+
+.offsettingEmmissionsImage {
+    background-image: url('../../../../../public/images/offsetting.jpg');
+}
+
+.sustainableContent {
+    display: flex;
+    margin-bottom: 50px;
+}
+
+.sustainableLeft,
+.sustainableRight {
+    width: 50%;
+    font-size: 20px;
+    margin: 0 15px !important;
+    line-height: 40px;
+    text-align: left;
+}
+
+.sustainableLeftText {
+    font-weight: 600;
+    max-width: 600px;
+}
+
+.sustainableRight {
+    max-width: 600px;
+}
+
+.nutritionPillarsHeading {
+    font-size: 44px;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 55px !important;
+    padding-bottom: 28px !important;
+    text-align: left;
+    border-bottom: 3px solid var(--default-black);
+    margin-bottom: 75px !important;
+}
+
+.leftBoxCard {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+    width: 50%;
+}
+
+.leftBox {
+    height: 470Px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    padding: 70px !important;
+    margin-bottom: 65px;
+    position: relative;
+    background-image: url('../../../../../public/images/moderation.jpg');
+}
+
+.leftBoxContent {
+    width: 100%;
+    height: 100%;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    background-color: var(--primary-white);
+}
+
+.leftBoxPiller {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    background-color: var(--primary-white);
+}
+
+.leftBoxInnerText1 {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    backface-visibility: hidden;
+    left: 0;
+    top: 0;
+    padding: 45px;
+    text-align: center;
+    letter-spacing: -2px;
+    color: var(--primary-text-black-color);
+    font-size: 47px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    line-height: 64px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.leftBoxInnerText2 {
+    background-color: var(--primary-white);
+    transform: rotateY(180deg);
+    font-size: 20px;
+    color: #4F4F4F;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 149.9%;
+    font-weight: 400;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    backface-visibility: hidden;
+    left: 0;
+    top: 0;
+    padding: 45px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.SustainableData {
+    padding: 0;
+}
+
+.ourApproachDescription {
+    margin: 0 auto !important;
+}
