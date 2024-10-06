@@ -21,7 +21,7 @@ const ListViewProvider: FC<WithChildren> = ({children}) => {
   const data = useQueryResponseData()
   const disabled = useMemo(() => calculatedGroupingIsDisabled(isLoading, data), [isLoading, data])
   const isAllSelected = useMemo(() => calculateIsAllDataSelected(data, selected), [data, selected])
-  console.log('-----dataaa', data);
+  // console.log('-----dataaa', data);
 
   return (
     <ListViewContext.Provider
@@ -35,7 +35,7 @@ const ListViewProvider: FC<WithChildren> = ({children}) => {
           groupingOnSelect(id, selected, setSelected)
         },
         onSelectAll: () => {
-          groupingOnSelectAll(isAllSelected, setSelected, data)
+          groupingOnSelectAll(isAllSelected, setSelected, data?.data)
         },
         clearSelected: () => {
           setSelected([])

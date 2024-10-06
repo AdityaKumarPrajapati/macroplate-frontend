@@ -33,9 +33,7 @@ const QueryResponseProvider: FC<WithChildren> = ({children}) => {
     data: response,
   } = useQuery(
     `${QUERIES.USERS_LIST}-${query}`,
-    // `${QUERIES.USERS_LIST}`,
     () => {
-      console.log('----query----', query);
       return getUsers(query)
     },
     {cacheTime: 0, keepPreviousData: true, refetchOnWindowFocus: false}
@@ -60,17 +58,17 @@ const useQueryResponseData = () => {
 }
 
 const useQueryResponsePagination = () => {
-  const defaultPaginationState: PaginationState = {
+  const defaultPaginationState: any = {
     links: [],
     ...initialQueryState,
   }
 
   const {response} = useQueryResponse()
-  if (!response || !response.payload || !response.payload.pagination) {
+  if (!response) {
     return defaultPaginationState
   }
 
-  return response.payload.pagination
+  return response;
 }
 
 const useQueryResponseLoading = (): boolean => {

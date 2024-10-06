@@ -21,16 +21,17 @@ const UsersListPagination = () => {
   const pagination = useQueryResponsePagination()
   const isLoading = useQueryResponseLoading()
   const {updateState} = useQueryRequest()
-  const updatePage = (page: number | undefined | null) => {
-    if (!page || isLoading || pagination.page === page) {
+  const updatePage = (page: any | undefined | null) => {
+    if (!page || isLoading || pagination.current_page === page) {
       return
     }
 
-    updateState({page, items_per_page: pagination.items_per_page || 10})
+    page = parseInt(page);
+    updateState({page, items_per_page: 10})
   }
 
   const PAGINATION_PAGES_COUNT = 5
-  const sliceLinks = (pagination?: PaginationState) => {
+  const sliceLinks = (pagination?: any) => {
     if (!pagination?.links?.length) {
       return []
     }
@@ -53,14 +54,14 @@ const UsersListPagination = () => {
     pageLinks.push(previousLink)
 
     if (
-      pagination.page <= Math.round(PAGINATION_PAGES_COUNT / 2) ||
+      pagination.current_page <= Math.round(PAGINATION_PAGES_COUNT / 2) ||
       scopedLinks.length <= PAGINATION_PAGES_COUNT
     ) {
       pageLinks = [...pageLinks, ...scopedLinks.slice(0, PAGINATION_PAGES_COUNT)]
     }
 
     if (
-      pagination.page > scopedLinks.length - halfOfPagesCount &&
+      pagination.current_page > scopedLinks.length - halfOfPagesCount &&
       scopedLinks.length > PAGINATION_PAGES_COUNT
     ) {
       pageLinks = [
@@ -71,16 +72,16 @@ const UsersListPagination = () => {
 
     if (
       !(
-        pagination.page <= Math.round(PAGINATION_PAGES_COUNT / 2) ||
+        pagination.current_page <= Math.round(PAGINATION_PAGES_COUNT / 2) ||
         scopedLinks.length <= PAGINATION_PAGES_COUNT
       ) &&
-      !(pagination.page > scopedLinks.length - halfOfPagesCount)
+      !(pagination.current_page > scopedLinks.length - halfOfPagesCount)
     ) {
       pageLinks = [
         ...pageLinks,
         ...scopedLinks.slice(
-          pagination.page - 1 - halfOfPagesCount,
-          pagination.page + halfOfPagesCount
+          pagination.current_page - 1 - halfOfPagesCount,
+          pagination.current_page + halfOfPagesCount
         ),
       ]
     }
@@ -100,7 +101,7 @@ const UsersListPagination = () => {
           <ul className='pagination'>
             <li
               className={clsx('page-item', {
-                disabled: isLoading || pagination.page === 1,
+                disabled: isLoading || pagination.current_page === 1,
               })}
             >
               <a onClick={() => updatePage(1)} style={{cursor: 'pointer'}} className='page-link'>
@@ -115,7 +116,7 @@ const UsersListPagination = () => {
                 <li
                   key={link.label}
                   className={clsx('page-item', {
-                    active: pagination.page === link.page,
+                    active: pagination.current_page === parseInt(link.url?.split('page=')[1]),
                     disabled: isLoading,
                     previous: link.label === 'Previous',
                     next: link.label === 'Next',
@@ -126,7 +127,7 @@ const UsersListPagination = () => {
                       'page-text': link.label === 'Previous' || link.label === 'Next',
                       'me-5': link.label === 'Previous',
                     })}
-                    onClick={() => updatePage(link.page)}
+                    onClick={() => updatePage(link.label)}
                     style={{cursor: 'pointer'}}
                   >
                     {mappedLabel(link.label)}
@@ -135,11 +136,11 @@ const UsersListPagination = () => {
               ))}
             <li
               className={clsx('page-item', {
-                disabled: isLoading || pagination.page === (pagination.links?.length || 3) - 2,
+                disabled: isLoading || pagination.current_page === pagination.last_page,
               })}
             >
               <a
-                onClick={() => updatePage((pagination.links?.length || 3) - 2)}
+                onClick={() => updatePage(pagination.last_page)}
                 style={{cursor: 'pointer'}}
                 className='page-link'
               >
