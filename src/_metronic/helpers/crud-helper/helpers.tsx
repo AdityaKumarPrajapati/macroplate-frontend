@@ -22,7 +22,7 @@ function stringifyRequestQuery(state: QueryState): string {
     ? Object.entries(state.filter)
         .filter((obj) => isNotEmpty(obj[1]))
         .map((obj) => {
-          return `filter_${obj[0]}=${obj[1]}`
+          return `${obj[0]}=${obj[1]}`
         })
         .join('&')
     : ''

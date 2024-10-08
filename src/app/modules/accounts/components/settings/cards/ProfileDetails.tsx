@@ -110,7 +110,7 @@ const ProfileDetails: FC = () => {
               </div>
             </div>
 
-            <div className='row mb-6'>
+            {/* <div className='row mb-6'>
               <label className='col-lg-4 col-form-label required fw-bold fs-6'>Company</label>
 
               <div className='col-lg-8 fv-row'>
@@ -126,7 +126,7 @@ const ProfileDetails: FC = () => {
                   </div>
                 )}
               </div>
-            </div>
+            </div> */}
 
             <div className='row mb-6'>
               <label className='col-lg-4 col-form-label fw-bold fs-6'>

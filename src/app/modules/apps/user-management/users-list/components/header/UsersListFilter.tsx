@@ -7,8 +7,8 @@ import {useQueryResponse} from '../../core/QueryResponseProvider'
 const UsersListFilter = () => {
   const {updateState} = useQueryRequest()
   const {isLoading} = useQueryResponse()
-  const [role, setRole] = useState<string | undefined>()
-  const [lastLogin, setLastLogin] = useState<string | undefined>()
+  const [subscription, setSubscription] = useState<string | undefined>()
+  const [userType, setUserType] = useState<string | undefined>()
 
   useEffect(() => {
     MenuComponent.reinitialization()
@@ -20,7 +20,7 @@ const UsersListFilter = () => {
 
   const filterData = () => {
     updateState({
-      filter: {role, last_login: lastLogin},
+      filter: {subscription, userType},
       ...initialQueryState,
     })
   }
@@ -55,45 +55,43 @@ const UsersListFilter = () => {
         <div className='px-7 py-5' data-kt-user-table-filter='form'>
           {/* begin::Input group */}
           <div className='mb-10'>
-            <label className='form-label fs-6 fw-bold'>Role:</label>
+            <label className='form-label fs-6 fw-bold'>Subscription:</label>
             <select
               className='form-select form-select-solid fw-bolder'
               data-kt-select2='true'
               data-placeholder='Select option'
               data-allow-clear='true'
-              data-kt-user-table-filter='role'
+              data-kt-user-table-filter='subscription'
               data-hide-search='true'
-              onChange={(e) => setRole(e.target.value)}
-              value={role}
+              onChange={(e) => setSubscription(e.target.value)}
+              value={subscription}
             >
               <option value=''></option>
-              <option value='Administrator'>Administrator</option>
-              <option value='Analyst'>Analyst</option>
-              <option value='Developer'>Developer</option>
-              <option value='Support'>Support</option>
-              <option value='Trial'>Trial</option>
+              <option value='Active'>Active</option>
+              <option value='Inactive'>Inactive</option>
+              <option value='TemporaryPaused'>Temporary Paused</option>
             </select>
           </div>
           {/* end::Input group */}
 
           {/* begin::Input group */}
           <div className='mb-10'>
-            <label className='form-label fs-6 fw-bold'>Last login:</label>
+            <label className='form-label fs-6 fw-bold'>User Types</label>
             <select
               className='form-select form-select-solid fw-bolder'
               data-kt-select2='true'
               data-placeholder='Select option'
               data-allow-clear='true'
-              data-kt-user-table-filter='two-step'
+              data-kt-user-table-filter='userType'
               data-hide-search='true'
-              onChange={(e) => setLastLogin(e.target.value)}
-              value={lastLogin}
+              onChange={(e) => setUserType(e.target.value)}
+              value={userType}
             >
               <option value=''></option>
-              <option value='Yesterday'>Yesterday</option>
-              <option value='20 mins ago'>20 mins ago</option>
-              <option value='5 hours ago'>5 hours ago</option>
-              <option value='2 days ago'>2 days ago</option>
+              <option value='Admin'>Admin</option>
+              <option value='Affiliate'>Affiliate</option>
+              <option value='User'>User</option>
+              <option value='ComplimentryUser'>Complimentry User</option>
             </select>
           </div>
           {/* end::Input group */}
@@ -103,7 +101,7 @@ const UsersListFilter = () => {
             <button
               type='button'
               disabled={isLoading}
-              onClick={filterData}
+              onClick={resetData}
               className='btn btn-light btn-active-light-primary fw-bold me-2 px-6'
               data-kt-menu-dismiss='true'
               data-kt-user-table-filter='reset'
@@ -113,7 +111,7 @@ const UsersListFilter = () => {
             <button
               disabled={isLoading}
               type='button'
-              onClick={resetData}
+              onClick={filterData}
               className='btn btn-primary fw-bold px-6'
               data-kt-menu-dismiss='true'
               data-kt-user-table-filter='filter'
