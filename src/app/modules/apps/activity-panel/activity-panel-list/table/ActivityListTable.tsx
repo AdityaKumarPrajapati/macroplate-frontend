@@ -6,8 +6,8 @@ import {useQueryResponseData, useQueryResponseLoading} from '../core/QueryRespon
 import {activityListColumns} from './columns/_columns'
 import {ActivityList} from '../core/_models'
 import { UsersListLoading } from '../../../user-management/users-list/components/loading/UsersListLoading'
-// import {UsersListPagination} from '../components/pagination/UsersListPagination'
 import {KTCardBody} from '../../../../../../_metronic/helpers'
+import { ActivityListPagination } from '../components/pagination/ActivityListPagination'
 
 const ActivityListTable = () => {
   const users = useQueryResponseData()
@@ -18,8 +18,6 @@ const ActivityListTable = () => {
     columns,
     data,
   })
-
-//   console.log('----data---', data);
 
   return (
     <KTCardBody className='py-4'>
@@ -54,7 +52,7 @@ const ActivityListTable = () => {
           </tbody>
         </table>
       </div>
-      {/* <UsersListPagination /> */}
+      <ActivityListPagination />
       {isLoading && <UsersListLoading />}
     </KTCardBody>
   )

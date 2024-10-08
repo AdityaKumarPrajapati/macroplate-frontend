@@ -32,7 +32,7 @@ const QueryResponseProvider: FC<WithChildren> = ({children}) => {
     refetch,
     data: response,
   } = useQuery(
-    `${QUERIES.ACTIVITY_LIST}`,
+    `${QUERIES.ACTIVITY_LIST}-${query}`,
     () => {
       return getActivityList(query)
     },
@@ -58,17 +58,17 @@ const useQueryResponseData = () => {
 }
 
 const useQueryResponsePagination = () => {
-  const defaultPaginationState: PaginationState = {
+  const defaultPaginationState: any = {
     links: [],
     ...initialQueryState,
   }
 
   const {response} = useQueryResponse()
-  if (!response || !response.payload || !response.payload.pagination) {
+  if (!response) {
     return defaultPaginationState
   }
 
-  return response.payload.pagination
+  return response;
 }
 
 const useQueryResponseLoading = (): boolean => {
