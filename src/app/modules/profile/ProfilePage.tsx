@@ -12,7 +12,7 @@ import { User } from '../apps/user-management/users-list/core/_models'
 
 const profileBreadCrumbs: Array<PageLink> = [
   {
-    title: 'Profile',
+    title: 'UserAccount',
     // path: '/crafted/pages/profile/overview',
     path: '/apps/user-management/user',
     isSeparator: false,
