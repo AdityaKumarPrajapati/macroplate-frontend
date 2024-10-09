@@ -1,6 +1,8 @@
-import {Route, Routes, Outlet, Navigate} from 'react-router-dom'
-import {PageLink, PageTitle} from '../../../../_metronic/layout/core'
-import {UsersListWrapper} from './users-list/UsersList'
+import { Route, Routes, Outlet, Navigate } from 'react-router-dom'
+import { PageLink, PageTitle } from '../../../../_metronic/layout/core'
+import { UsersListWrapper } from './users-list/UsersList'
+import { Overview } from '../../profile/components/Overview'
+import ProfilePage from '../../profile/ProfilePage'
 
 const usersBreadcrumbs: Array<PageLink> = [
   {
@@ -30,6 +32,12 @@ const UsersPage = () => {
             </>
           }
         />
+
+        <Route
+          path='user/account-details/:userId/*'
+          element={<ProfilePage />}
+        />
+
       </Route>
       <Route index element={<Navigate to='/apps/user-management/users' />} />
     </Routes>

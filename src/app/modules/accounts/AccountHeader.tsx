@@ -1,12 +1,14 @@
 
 import { FC } from 'react'
-import {KTIcon, toAbsoluteUrl} from '../../../_metronic/helpers'
-import {Link} from 'react-router-dom'
-import {Dropdown1} from '../../../_metronic/partials'
-import {useLocation} from 'react-router'
+import { KTIcon, toAbsoluteUrl } from '../../../_metronic/helpers'
+import { Link } from 'react-router-dom'
+import { Dropdown1 } from '../../../_metronic/partials'
+import { useLocation } from 'react-router'
+import { useAuth } from '../auth'
 
 const AccountHeader: FC = () => {
   const location = useLocation()
+  const { currentUser } = useAuth()
 
   return (
     <div className='card mb-5 mb-xl-10'>
@@ -24,42 +26,42 @@ const AccountHeader: FC = () => {
               <div className='d-flex flex-column'>
                 <div className='d-flex align-items-center mb-2'>
                   <a href='#' className='text-gray-800 text-hover-primary fs-2 fw-bolder me-1'>
-                    Max Smith
+                    {currentUser?.first_name} {currentUser?.last_name}
                   </a>
                   <a href='#'>
                     <KTIcon iconName='verify' className='fs-1 text-primary' />
                   </a>
-                  <a
+                  {/* <a
                     href='#'
                     className='btn btn-sm btn-light-success fw-bolder ms-2 fs-8 py-1 px-3'
                     data-bs-toggle='modal'
                     data-bs-target='#kt_modal_upgrade_plan'
                   >
                     Upgrade to Pro
-                  </a>
+                  </a> */}
                 </div>
 
                 <div className='d-flex flex-wrap fw-bold fs-6 mb-4 pe-2'>
-                  <a
+                  {/* <a
                     href='#'
                     className='d-flex align-items-center text-gray-500 text-hover-primary me-5 mb-2'
                   >
                     <KTIcon iconName='profile-circle' className='fs-4 me-1' />
                     Developer
-                  </a>
-                  <a
+                  </a> */}
+                  {/* <a
                     href='#'
                     className='d-flex align-items-center text-gray-500 text-hover-primary me-5 mb-2'
                   >
                     <KTIcon iconName='geolocation' className='fs-4 me-1' />
                     SF, Bay Area
-                  </a>
+                  </a> */}
                   <a
                     href='#'
                     className='d-flex align-items-center text-gray-500 text-hover-primary mb-2'
                   >
                     <KTIcon iconName='sms' className='fs-4 me-1' />
-                    max@kt.com
+                    {currentUser?.email}
                   </a>
                 </div>
               </div>
@@ -68,20 +70,20 @@ const AccountHeader: FC = () => {
                 <a href='#' className='btn btn-sm btn-light me-2' id='kt_user_follow_button'>
                   <KTIcon iconName='check' className='fs-3 d-none' />
 
-                  <span className='indicator-label'>Follow</span>
+                  {/* <span className='indicator-label'>Follow</span> */}
                   <span className='indicator-progress'>
                     Please wait...
                     <span className='spinner-border spinner-border-sm align-middle ms-2'></span>
                   </span>
                 </a>
-                <a
+                {/* <a
                   href='#'
                   className='btn btn-sm btn-primary me-3'
                   data-bs-toggle='modal'
                   data-bs-target='#kt_modal_offer_a_deal'
                 >
                   Hire Me
-                </a>
+                </a> */}
                 <div className='me-0'>
                   <button
                     className='btn btn-sm btn-icon btn-bg-light btn-active-color-primary'
@@ -137,7 +139,7 @@ const AccountHeader: FC = () => {
                   <div
                     className='bg-success rounded h-5px'
                     role='progressbar'
-                    style={{width: '50%'}}
+                    style={{ width: '50%' }}
                   ></div>
                 </div>
               </div>
@@ -176,4 +178,4 @@ const AccountHeader: FC = () => {
   )
 }
 
-export {AccountHeader}
+export { AccountHeader }

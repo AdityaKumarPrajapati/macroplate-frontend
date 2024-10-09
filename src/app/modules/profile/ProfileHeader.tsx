@@ -1,10 +1,11 @@
 
 import { FC } from 'react'
-import {KTIcon, toAbsoluteUrl} from '../../../_metronic/helpers'
-import {Link, useLocation} from 'react-router-dom'
-import {Dropdown1} from '../../../_metronic/partials'
+import { KTIcon, capitalizeInitial, toAbsoluteUrl } from '../../../_metronic/helpers'
+import { Link, useLocation } from 'react-router-dom'
+import { Dropdown1 } from '../../../_metronic/partials'
+import { User } from '../apps/user-management/users-list/core/_models'
 
-const ProfileHeader: FC = () => {
+const ProfileHeader: FC<{ user: User }> = ({ user }) => {
   const location = useLocation()
 
   return (
@@ -22,40 +23,37 @@ const ProfileHeader: FC = () => {
             <div className='d-flex justify-content-between align-items-start flex-wrap mb-2'>
               <div className='d-flex flex-column'>
                 <div className='d-flex align-items-center mb-2'>
-                  <a href='#' className='text-gray-800 text-hover-primary fs-2 fw-bolder me-1'>
-                    Max Smith
-                  </a>
-                  <a href='#'>
+                  <span className='text-gray-800 fs-2 fw-bolder me-1'>
+                  {capitalizeInitial(user.first_name)} {capitalizeInitial(user.last_name)}
+                  </span>
+                  {/* <a href='#'>
                     <KTIcon iconName='verify' className='fs-1 text-primary' />
-                  </a>
+                  </a> */}
                 </div>
 
                 <div className='d-flex flex-wrap fw-bold fs-6 mb-4 pe-2'>
-                  <a
-                    href='#'
-                    className='d-flex align-items-center text-gray-500 text-hover-primary me-5 mb-2'
+                  <span
+                    className='d-flex align-items-center text-gray-500 me-5 mb-2'
                   >
                     <KTIcon iconName='profile-circle' className='fs-4 me-1' />
-                    Developer
-                  </a>
-                  <a
-                    href='#'
-                    className='d-flex align-items-center text-gray-500 text-hover-primary me-5 mb-2'
+                    {user.is_complimentary_user === 1 ? 'Complimentry User' : capitalizeInitial(user.user_type)}
+                  </span>
+                  <span
+                    className='d-flex align-items-center text-gray-500 me-5 mb-2'
                   >
                     <KTIcon iconName='geolocation' className='fs-4 me-1' />
                     SF, Bay Area
-                  </a>
-                  <a
-                    href='#'
-                    className='d-flex align-items-center text-gray-500 text-hover-primary mb-2'
+                  </span>
+                  <span
+                    className='d-flex align-items-center text-gray-500 mb-2'
                   >
                     <KTIcon iconName='sms' className='fs-4 me-1' />
-                    max@kt.com
-                  </a>
+                    {user.email}
+                  </span>
                 </div>
               </div>
 
-              <div className='d-flex my-4'>
+              {/* <div className='d-flex my-4'>
                 <a href='#' className='btn btn-sm btn-light me-2' id='kt_user_follow_button'>
                   <KTIcon iconName='check' className='fs-3 d-none' />
 
@@ -84,7 +82,7 @@ const ProfileHeader: FC = () => {
                   </button>
                   <Dropdown1 />
                 </div>
-              </div>
+              </div> */}
             </div>
 
             <div className='d-flex flex-wrap flex-stack'>
@@ -128,7 +126,7 @@ const ProfileHeader: FC = () => {
                   <div
                     className='bg-success rounded h-5px'
                     role='progressbar'
-                    style={{width: '50%'}}
+                    style={{ width: '50%' }}
                   ></div>
                 </div>
               </div>
@@ -140,13 +138,11 @@ const ProfileHeader: FC = () => {
           <ul className='nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent fs-5 fw-bolder flex-nowrap'>
             <li className='nav-item'>
               <Link
-                className={
-                  `nav-link text-active-primary me-6 ` +
-                  (location.pathname === '/crafted/pages/profile/overview' && 'active')
-                }
-                to='/crafted/pages/profile/overview'
+                className={`nav-link text-active-primary me-6 ${location.pathname === `/apps/user-management/user/account-details/${user.id}/account` ? 'active' : ''
+                  }`}
+                to={`/apps/user-management/user/account-details/${user.id}/account`}
               >
-                Overview
+                Account
               </Link>
             </li>
             <li className='nav-item'>
@@ -200,4 +196,4 @@ const ProfileHeader: FC = () => {
   )
 }
 
-export {ProfileHeader}
+export { ProfileHeader }

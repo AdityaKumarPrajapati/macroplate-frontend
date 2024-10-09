@@ -1,13 +1,15 @@
-import {Link} from 'react-router-dom'
-import {KTIcon} from '../../../../_metronic/helpers'
+import { Link } from 'react-router-dom'
+import { KTIcon } from '../../../../_metronic/helpers'
 import {
   ChartsWidget1,
   ListsWidget5,
   TablesWidget1,
   TablesWidget5,
 } from '../../../../_metronic/partials/widgets'
+import { useAuth } from '../../auth'
 
 export function Overview() {
+  const { currentUser } = useAuth()
   return (
     <>
       <div className='card mb-5 mb-xl-10' id='kt_profile_details_view'>
@@ -26,17 +28,19 @@ export function Overview() {
             <label className='col-lg-4 fw-bold text-muted'>Full Name</label>
 
             <div className='col-lg-8'>
-              <span className='fw-bolder fs-6 text-gray-900'>Max Smith</span>
+              <span className='fw-bolder fs-6 text-gray-900'>
+                {currentUser?.first_name} {currentUser?.last_name}
+              </span>
             </div>
           </div>
 
-          <div className='row mb-7'>
+          {/* <div className='row mb-7'>
             <label className='col-lg-4 fw-bold text-muted'>Company</label>
 
             <div className='col-lg-8 fv-row'>
               <span className='fw-bold fs-6'>Keenthemes</span>
             </div>
-          </div>
+          </div> */}
 
           <div className='row mb-7'>
             <label className='col-lg-4 fw-bold text-muted'>
@@ -49,13 +53,15 @@ export function Overview() {
             </label>
 
             <div className='col-lg-8 d-flex align-items-center'>
-              <span className='fw-bolder fs-6 me-2'>044 3276 454 935</span>
+              <span className='fw-bolder fs-6 me-2'>
+              {currentUser?.phone}
+              </span>
 
               <span className='badge badge-success'>Verified</span>
             </div>
           </div>
 
-          <div className='row mb-7'>
+          {/* <div className='row mb-7'>
             <label className='col-lg-4 fw-bold text-muted'>Company Site</label>
 
             <div className='col-lg-8'>
@@ -63,7 +69,7 @@ export function Overview() {
                 keenthemes.com
               </a>
             </div>
-          </div>
+          </div> */}
 
           <div className='row mb-7'>
             <label className='col-lg-4 fw-bold text-muted'>
@@ -76,7 +82,7 @@ export function Overview() {
             </label>
 
             <div className='col-lg-8'>
-              <span className='fw-bolder fs-6 text-gray-900'>Germany</span>
+              <span className='fw-bolder fs-6 text-gray-900'>US</span>
             </div>
           </div>
 

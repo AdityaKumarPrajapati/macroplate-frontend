@@ -3,6 +3,7 @@ import clsx from 'clsx'
 import { FC } from 'react'
 import { toAbsoluteUrl } from '../../../../../../../_metronic/helpers'
 import { User } from '../../core/_models'
+import { Link } from 'react-router-dom'
 
 type Props = {
   user: User
@@ -19,7 +20,7 @@ const UserInfoCell: FC<Props> = ({ user }) => {
     const capitalize = (name: string) => name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
     const capitalizedFirstName = capitalize(firstName);
     const capitalizedLastName = capitalize(lastName);
-  
+
     return `${capitalizedFirstName} ${capitalizedLastName}`;
   }
   return (
@@ -45,9 +46,9 @@ const UserInfoCell: FC<Props> = ({ user }) => {
         </a>
       </div>
       <div className='d-flex flex-column'>
-        <a href='#' className='text-gray-800 text-hover-primary mb-1'>
+        <Link to={`/apps/user-management/user/account-details/${user.id}/account`} className='text-gray-800 text-hover-primary mb-1'>
           {capitalizeName(user.first_name, user.last_name)}
-        </a>
+        </Link>
         <span>{user.email}</span>
       </div>
     </div>

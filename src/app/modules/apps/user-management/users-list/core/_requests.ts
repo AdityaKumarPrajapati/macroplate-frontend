@@ -3,7 +3,7 @@ import { ID, Response } from "../../../../../../_metronic/helpers";
 import { User, UsersQueryResponse } from "./_models";
 
 const API_URL = import.meta.env.VITE_LARAVEL_API_URL;
-const USER_URL = `${API_URL}/user`;
+const USER_URL = `${API_URL}/api/user`;
 // const GET_USERS_URL = `${API_URL}/users/query`;
 const GET_USERS_URL = `${API_URL}/api/all-users`;
 
@@ -14,7 +14,7 @@ const getUsers = (query: string): Promise<UsersQueryResponse | undefined> => {
     .then((d: AxiosResponse<UsersQueryResponse>) => d?.data?.data || {});
 };
 
-const getUserById = (id: ID): Promise<User | undefined> => {
+const getUserById = (id: any): Promise<User | undefined> => {
   return axios
     .get(`${USER_URL}/${id}`)
     .then((response: AxiosResponse<Response<User>>) => response.data)

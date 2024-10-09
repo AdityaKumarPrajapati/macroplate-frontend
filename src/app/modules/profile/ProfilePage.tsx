@@ -1,16 +1,20 @@
-import {Navigate, Routes, Route, Outlet} from 'react-router-dom'
-import {PageLink, PageTitle} from '../../../_metronic/layout/core'
-import {Overview} from './components/Overview'
-import {Projects} from './components/Projects'
-import {Campaigns} from './components/Campaigns'
-import {Documents} from './components/Documents'
-import {Connections} from './components/Connections'
-import {ProfileHeader} from './ProfileHeader'
+import { Navigate, Routes, Route, Outlet, useParams } from 'react-router-dom'
+import { PageLink, PageTitle } from '../../../_metronic/layout/core'
+import { Overview } from './components/Overview'
+import { Projects } from './components/Projects'
+import { Campaigns } from './components/Campaigns'
+import { Documents } from './components/Documents'
+import { Connections } from './components/Connections'
+import { ProfileHeader } from './ProfileHeader'
+import { useEffect, useState } from 'react'
+import { getUserById } from '../apps/user-management/users-list/core/_requests'
+import { User } from '../apps/user-management/users-list/core/_models'
 
 const profileBreadCrumbs: Array<PageLink> = [
   {
     title: 'Profile',
-    path: '/crafted/pages/profile/overview',
+    // path: '/crafted/pages/profile/overview',
+    path: '/apps/user-management/user',
     isSeparator: false,
     isActive: false,
   },
@@ -22,26 +26,52 @@ const profileBreadCrumbs: Array<PageLink> = [
   },
 ]
 
-const ProfilePage = () => (
-  <Routes>
-    <Route
-      element={
-        <>
-          <ProfileHeader />
-          <Outlet />
-        </>
+const ProfilePage = () => {
+
+  const { userId } = useParams();
+  const [userData, setUserData] = useState<User | null>(null);;
+  useEffect(() => {
+    const fetchUserData = async () => {
+      if (userId) {
+        try {
+          const data: User | any = await getUserById(userId as string);
+          if(data) {
+            setUserData(data[0]);
+          }
+        } catch (error) {
+          console.error('Error fetching user data:', error);
+        }
       }
-    >
+    };
+    fetchUserData();
+  }, [userId]);
+
+  if (!userData) {
+    return <div>Loading...</div>;
+  }
+
+  return (
+    <Routes>
       <Route
-        path='overview'
         element={
           <>
-            <PageTitle breadcrumbs={profileBreadCrumbs}>Overview</PageTitle>
-            <Overview />
+            <ProfileHeader 
+              user={userData}
+            />
+            <Outlet />
           </>
         }
-      />
-      <Route
+      >
+        <Route
+          path='account'
+          element={
+            <>
+              <PageTitle breadcrumbs={profileBreadCrumbs}>Account</PageTitle>
+              <Overview />
+            </>
+          }
+        />
+        {/* <Route
         path='projects'
         element={
           <>
@@ -76,10 +106,11 @@ const ProfilePage = () => (
             <Connections />
           </>
         }
-      />
-      <Route index element={<Navigate to='/crafted/pages/profile/overview' />} />
-    </Route>
-  </Routes>
-)
+      /> */}
+        {/* <Route index element={<Navigate to='/crafted/pages/profile/overview' />} /> */}
+      </Route>
+    </Routes>
+  )
+}
 
 export default ProfilePage
