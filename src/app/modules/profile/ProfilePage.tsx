@@ -1,6 +1,6 @@
 import { Navigate, Routes, Route, Outlet, useParams } from 'react-router-dom'
 import { PageLink, PageTitle } from '../../../_metronic/layout/core'
-import { Overview } from './components/Overview'
+// import { Overview } from './components/Overview'
 import { Projects } from './components/Projects'
 import { Campaigns } from './components/Campaigns'
 import { Documents } from './components/Documents'
@@ -9,6 +9,7 @@ import { ProfileHeader } from './ProfileHeader'
 import { useEffect, useState } from 'react'
 import { getUserById } from '../apps/user-management/users-list/core/_requests'
 import { User } from '../apps/user-management/users-list/core/_models'
+import { Overview } from '../accounts/components/Overview'
 
 const profileBreadCrumbs: Array<PageLink> = [
   {
