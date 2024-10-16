@@ -36,8 +36,8 @@ const UserInfoCell: FC<Props> = ({ user }) => {
             <div
               className={clsx(
                 'symbol-label fs-3',
-                `bg-light-${user?.status === 'active' ? 'success' : 'danger'}`,
-                `text-${user?.status === 'active' ? 'success' : 'danger'}`
+                `bg-light-${user?.status === 'Active' ? 'success' : 'danger'}`,
+                `text-${user?.status === 'Active' ? 'success' : 'danger'}`
               )}
             >
               {getNameInitials(user.first_name, user.last_name)}

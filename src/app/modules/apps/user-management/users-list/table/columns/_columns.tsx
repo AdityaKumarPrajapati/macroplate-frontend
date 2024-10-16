@@ -21,7 +21,7 @@ const usersColumns: ReadonlyArray<Column<User>> = [
     Cell: ({ ...props }) => <UserInfoCell user={props.data[props.row.index]} />,
   },
   {
-    Header: (props) => <UserCustomHeader tableProps={props} title='User Type' className='min-w-125px' />,
+    Header: (props) => <UserCustomHeader tableProps={props} title='Type' className='min-w-125px' />,
     accessor: 'user_type',
     Cell: ({ value }) => {
       return capitalizeInitial(value);
@@ -43,6 +43,10 @@ const usersColumns: ReadonlyArray<Column<User>> = [
       };
       return <span style={{ color: getColor(value) }}>{capitalizeInitial(value)}</span>;
     }
+  },
+  {
+    Header: (props) => <UserCustomHeader tableProps={props} title='Subscription' className='min-w-125px' />,
+    accessor: 'stripe_plan'
   },
   // {
   //   Header: (props) => (

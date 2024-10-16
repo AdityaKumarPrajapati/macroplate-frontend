@@ -27,6 +27,7 @@ export type User = {
   created_at?: string
   referral_code?: string
   stripe_id?: string
+  stripe_plan?: string
   is_complimentary_user?: any
   customized_meals?: any
   status?: string

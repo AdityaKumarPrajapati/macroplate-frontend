@@ -30,7 +30,7 @@ const profileBreadCrumbs: Array<PageLink> = [
 const ProfilePage = () => {
 
   const { userId } = useParams();
-  const [userData, setUserData] = useState<User | null>(null);;
+  const [userData, setUserData] = useState<User | null>(null);
   useEffect(() => {
     const fetchUserData = async () => {
       if (userId) {

@@ -6,6 +6,7 @@ const API_URL = import.meta.env.VITE_LARAVEL_API_URL;
 const USER_URL = `${API_URL}/api/user`;
 // const GET_USERS_URL = `${API_URL}/users/query`;
 const GET_USERS_URL = `${API_URL}/api/all-users`;
+const GET_USERS_COUNT = `${API_URL}/api/userCount`;
 
 const getUsers = (query: string): Promise<UsersQueryResponse | undefined> => {
   return axios
@@ -17,6 +18,13 @@ const getUsers = (query: string): Promise<UsersQueryResponse | undefined> => {
 const getUserById = (id: any): Promise<User | undefined> => {
   return axios
     .get(`${USER_URL}/${id}`)
+    .then((response: AxiosResponse<Response<User>>) => response.data)
+    .then((response: Response<User>) => response.data);
+};
+
+const getUserByCount = (): Promise<any | undefined> => {
+  return axios
+    .get(`${GET_USERS_COUNT}`)
     .then((response: AxiosResponse<Response<User>>) => response.data)
     .then((response: Response<User>) => response.data);
 };
@@ -46,6 +54,7 @@ const deleteSelectedUsers = (userIds: Array<ID>): Promise<void> => {
 
 export {
   getUsers,
+  getUserByCount,
   deleteUser,
   deleteSelectedUsers,
   getUserById,
