@@ -67,18 +67,25 @@ export function Login() {
   const formik = useFormik({
     initialValues,
     validationSchema: loginSchema,
+    // Update form submission to handle token storage and user data setting
+
     onSubmit: async (values, { setStatus, setSubmitting }) => {
       setLoading(true)
       try {
+        // Call login API
         const { data: auth } = await login(values.email, values.password)
+
+        // Save token and authenticate
         saveAuth(auth)
-        const { data: user } = await getUserByToken(auth.api_token)
-        // setCurrentUser(user)
+
+        // Get user details with token
+        // const { data: user } = await getUserByToken(auth.token)
         setCurrentUser(auth.user)
-        // localStorage.setItem('user', JSON.stringify(auth.user));
+
+        // Persist token and user to localStorage
+        localStorage.setItem('auth', JSON.stringify(auth))
+        localStorage.setItem('user', JSON.stringify(auth.user))
       } catch (error) {
-        console.error(error)
-        saveAuth(undefined)
         setStatus('The login details are incorrect')
         setSubmitting(false)
         setLoading(false)
