@@ -33,8 +33,8 @@ const SideBarHeader: React.FC<SideBarHeaderProps> = ({ currentPage }) => {
                 </div>
             </div>
             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="13" viewBox="0 0 12 13" fill="none" onClick={toggleSidebar} className="toprightCloseIconCheckout">
-                <path d="M1 12.3637L11.0499 1" stroke="#292D32" stroke-width="0.831563" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M11.0499 12.3637L1 1" stroke="#292D32" stroke-width="0.831563" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M1 12.3637L11.0499 1" stroke="#292D32" strokeWidth="0.831563" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M11.0499 12.3637L1 1" stroke="#292D32" strokeWidth="0.831563" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
         </div>
     );

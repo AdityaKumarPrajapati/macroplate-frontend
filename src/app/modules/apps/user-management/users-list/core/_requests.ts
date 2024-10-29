@@ -1,4 +1,5 @@
 import axios, { AxiosResponse } from "axios";
+import axiosInstance from "../../../../../../_metronic/helpers/AxiosInstance";
 import { ID, Response } from "../../../../../../_metronic/helpers";
 import { User, UsersQueryResponse } from "./_models";
 
@@ -9,10 +10,13 @@ const GET_USERS_URL = `${API_URL}/api/all-users`;
 const GET_USERS_COUNT = `${API_URL}/api/userCount`;
 
 const getUsers = (query: string): Promise<UsersQueryResponse | undefined> => {
-  return axios
+  return axiosInstance
     .get(`${GET_USERS_URL}?${query}`)
-    // .get(`${GET_USERS_URL}`)
-    .then((d: AxiosResponse<UsersQueryResponse>) => d?.data?.data || {});
+    .then(response => response?.data?.data || {})
+    .catch(error => {
+      console.error("Error fetching users:", error);
+      throw error;
+    });
 };
 
 const getUserById = (id: any): Promise<User | undefined> => {

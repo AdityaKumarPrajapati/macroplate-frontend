@@ -74,17 +74,17 @@ export function Login() {
       try {
         // Call login API
         const { data: auth } = await login(values.email, values.password)
-
+        
         // Save token and authenticate
-        saveAuth(auth)
+        saveAuth(auth.token)
 
         // Get user details with token
-        // const { data: user } = await getUserByToken(auth.token)
-        setCurrentUser(auth.user)
+        const { data: user } = await getUserByToken(auth.token)
+        setCurrentUser(user.user)
 
         // Persist token and user to localStorage
         localStorage.setItem('auth', JSON.stringify(auth))
-        localStorage.setItem('user', JSON.stringify(auth.user))
+        localStorage.setItem('user', JSON.stringify(user.user))
       } catch (error) {
         setStatus('The login details are incorrect')
         setSubmitting(false)

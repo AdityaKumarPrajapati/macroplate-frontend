@@ -225,7 +225,7 @@ $table-loading-message-box-shadow-dark:        		0px 0px 30px rgba(0, 0, 0, 0.3)
 	
 // Forms
 $form-select-indicator-color-dark:                  $gray-600-dark !default;
-$form-select-indicator-dark:                        url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='none' stroke='#{$form-select-indicator-color-dark}' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/></svg>") !default;
+$form-select-indicator-dark:                        url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='none' stroke='#{$form-select-indicator-color-dark}' strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='m2 5 6 6 6-6'/></svg>") !default;
 $form-switch-color-dark:                            rgba($white, .25) !default;
 $form-switch-color-solid-dark:                      $gray-500-dark !default;
 $form-switch-bg-image-dark:                         url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$form-switch-color-dark}'/></svg>") !default;

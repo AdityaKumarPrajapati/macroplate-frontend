@@ -47,6 +47,7 @@ const AuthProvider: FC<WithChildren> = ({ children }) => {
     saveAuth(undefined)
     setCurrentUser(undefined)
     localStorage.removeItem('user') // Remove user on logout
+    localStorage.removeItem('auth')
   }
 
   return (
@@ -66,7 +67,7 @@ const AuthInit: FC<WithChildren> = ({ children }) => {
       try {
         const { data } = await getUserByToken(apiToken)
         if (data) {
-          setCurrentUser(data)
+          setCurrentUser(data.user)
         }
       } catch (error) {
         // logout()
@@ -75,10 +76,10 @@ const AuthInit: FC<WithChildren> = ({ children }) => {
       }
     }
 
-    const storedAuth = localStorage.getItem('auth')
+    let storedAuth = localStorage.getItem('auth')
     if (storedAuth) {
       const auth = JSON.parse(storedAuth)
-      requestUser(auth.api_token)
+      requestUser(auth.token)
     } else {
       setShowSplashScreen(false)
     }
