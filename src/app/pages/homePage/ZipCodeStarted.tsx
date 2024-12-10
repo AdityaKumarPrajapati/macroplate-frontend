@@ -3,7 +3,7 @@ import { useSidebar } from "../../../_metronic/context/SidebarContext";
 
 const ZipCodeStarted = () => {
     const [zipCode, setZipCode] = useState('');
-    const { toggleSidebar } = useSidebar();
+    const { toggleSidebar, setCheckoutData } = useSidebar();
 
     const handleZipCodeChange = (e: any) => {
         setZipCode(e.target.value);
@@ -11,8 +11,18 @@ const ZipCodeStarted = () => {
 
     const handleZipCodeSubmit = (e) => {
         e.preventDefault();
+        if (zipCode) {
+            // Update checkoutData
+            setCheckoutData((prevData: any) => {
+                const updatedData = { ...prevData, zipCode };
+                localStorage.setItem("checkoutData", JSON.stringify(updatedData));
+                return updatedData;
+            });
+    
+            // Toggle sidebar
+            toggleSidebar();
+        }
         toggleSidebar();
-        console.log('----zipCode---', zipCode);
     }
 
     return (

@@ -1,7 +1,8 @@
 const QUERIES = {
   // USERS_LIST: 'users-list',
   USERS_LIST: 'api/all-users',
-  ACTIVITY_LIST: 'api/activity-list'
+  ACTIVITY_LIST: 'api/activity-list',
+  ZIPCODE_LIST: 'api/zipCode-list'
 }
 
 const ACTIVITIES = {

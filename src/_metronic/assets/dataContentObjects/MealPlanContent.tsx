@@ -16,6 +16,7 @@ interface MealPlan {
         Fat: string;
         Calories: string;
     };
+    dataValue: string;
 }
 
 interface MealPlanContent {
@@ -38,7 +39,8 @@ const MealPlanContent: MealPlanContent = {
             Carbs: '42g',
             Fat: '18g',
             Calories: '430'
-        }
+        },
+        dataValue: 'trad'
     },
     highProtein: {
         header: 'High Protein',
@@ -55,7 +57,8 @@ const MealPlanContent: MealPlanContent = {
             Carbs: '27g',
             Fat: '24g',
             Calories: '453'
-        }
+        },
+        dataValue: 'hp'
     },
     paleo: {
         header: 'Paleo',
@@ -72,7 +75,8 @@ const MealPlanContent: MealPlanContent = {
             Carbs: '19g',
             Fat: '23g',
             Calories: '423'
-        }
+        },
+        dataValue: 'paleo'
     },
     paleoLite: {
         header: 'Paleo Lite',
@@ -89,7 +93,8 @@ const MealPlanContent: MealPlanContent = {
             Carbs: '19g',
             Fat: '26g',
             Calories: '422'
-        }
+        },
+        dataValue: 'paleolite'
     },
     vegetarian: {
         header: 'Vegetarian',
@@ -106,7 +111,8 @@ const MealPlanContent: MealPlanContent = {
             Carbs: '42g',
             Fat: '23g',
             Calories: '455'
-        }
+        },
+        dataValue: 'vegetarian'
     }
 };
 

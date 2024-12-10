@@ -43,6 +43,7 @@
     font-weight: 400;
     line-height: normal;
     cursor: pointer;
+    height: 100%;
 }
 
 .mealSelectionContentText p {

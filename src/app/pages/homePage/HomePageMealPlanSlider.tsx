@@ -10,11 +10,22 @@ import './styles/HomePageMealPlanSlider.css'; // Use CSS Modules for scoped styl
 import { useSidebar } from "../../../_metronic/context/SidebarContext";
 
 const HomePageMealPlanSlider = () => {
-    const { toggleSidebar } = useSidebar();
+    const { toggleSidebar, checkoutData, setCheckoutData } = useSidebar();
 
-    const selectVanity = () => {
-        toggleSidebar()
-    }
+    const selectVanity = (event: React.MouseEvent<HTMLButtonElement>) => {
+        const vanityName = event.currentTarget.getAttribute("data-value");
+        if (vanityName) {
+            // Update checkoutData
+            setCheckoutData((prevData: any) => {
+                const updatedData = { ...prevData, vanityName };
+                localStorage.setItem("checkoutData", JSON.stringify(updatedData));
+                return updatedData;
+            });
+    
+            // Toggle sidebar
+            toggleSidebar();
+        }
+    };
     const settings = {
         dots: false,
         infinite: true,
@@ -22,8 +33,8 @@ const HomePageMealPlanSlider = () => {
         slidesToShow: 3,
         slidesToScroll: 3,
         initialSlide: 0,
-        nextArrow: <NextArrowSvg />,
-        prevArrow: <PrevArrowSvg />,
+        nextArrow: <NextArrowSvg color = '#292D32' />,
+        prevArrow: <PrevArrowSvg color = '#292D32' />,
         responsive: [
             {
                 breakpoint: 1024,
@@ -105,8 +116,14 @@ const HomePageMealPlanSlider = () => {
                             </div>
 
                             <div className="planGetStartedSection">
-                                <button type="button" className="d-flex justify-content-center startPlanBtn"
-                                    data-value={planKey} onClick={selectVanity}>GET STARTED</button>
+                                <button
+                                    type="button"
+                                    className="d-flex justify-content-center startPlanBtn"
+                                    data-value={plan.dataValue}
+                                    onClick={selectVanity}
+                                >
+                                    GET STARTED
+                                </button>
                             </div>
                         </div>
                     );

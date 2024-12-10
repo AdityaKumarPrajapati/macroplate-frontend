@@ -15,7 +15,7 @@ const profileBreadCrumbs: Array<PageLink> = [
   {
     title: 'UserAccount',
     // path: '/crafted/pages/profile/overview',
-    path: '/apps/user-management/user',
+    path: '/apps/user-management/users',
     isSeparator: false,
     isActive: false,
   },

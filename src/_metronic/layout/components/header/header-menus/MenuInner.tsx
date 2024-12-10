@@ -115,6 +115,7 @@ export function MenuInner() {
         </MenuInnerWithSub> */}
         <MenuItem icon='abstract-28' to='/apps/user-management/users' title='User management' />
         <MenuItem icon='data' to='/apps/activity-panel' title='Activity Panel' />
+        <MenuItem icon='geolocation' to='/apps/zipCode' title='Add ZipCodes' />
       </MenuInnerWithSub>
 
       <MenuInnerWithSub

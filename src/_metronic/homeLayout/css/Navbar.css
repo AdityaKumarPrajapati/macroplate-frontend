@@ -25,6 +25,7 @@
   height: 60px;
   display: flex;
   align-items: center;
+  padding: 0;
 }
 
 .nav-container {
@@ -55,7 +56,25 @@
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
   cursor: pointer;
+  position: relative;
+  padding: 20px 0;
 }
+
+.nav-links::after {
+  content: "";
+  background-color: #0aab65;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 0;
+  transition: 200ms;
+}
+
+.nav-links:hover::after {
+  height: 2px;
+}
+
 
 .nav-item {
   display: flex;

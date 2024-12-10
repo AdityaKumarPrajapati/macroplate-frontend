@@ -8,6 +8,7 @@ import { getCSSVariableValue } from '../../_metronic/assets/ts/_utils'
 import { WithChildren } from '../../_metronic/helpers'
 import BuilderPageWrapper from '../pages/layout-builder/BuilderPageWrapper'
 import { QueryResponseProvider } from '../modules/apps/user-management/users-list/core/QueryResponseProvider'
+// import ZipCodePanelPanelPage from '../modules/apps/zipCodes/zipCodePanelPage'
 
 const PrivateRoutes = () => {
   const ProfilePage = lazy(() => import('../modules/profile/ProfilePage'))
@@ -17,6 +18,7 @@ const PrivateRoutes = () => {
   // const ChatPage = lazy(() => import('../modules/apps/chat/ChatPage'))
   const UsersPage = lazy(() => import('../modules/apps/user-management/UsersPage'))
   const ActivityPanelPage = lazy(() => import('../modules/apps/activity-panel/ActivityPanelPage'))
+  const ZipCodePanelPanelPage = lazy(() => import('../modules/apps/zipCodes/zipCodePanelPage'))
 
   return (
     <Routes>
@@ -85,6 +87,14 @@ const PrivateRoutes = () => {
           element={
             <SuspensedView>
               <ActivityPanelPage />
+            </SuspensedView>
+          }
+        />
+        <Route
+          path='apps/zipCode/*'
+          element={
+            <SuspensedView>
+              <ZipCodePanelPanelPage />
             </SuspensedView>
           }
         />

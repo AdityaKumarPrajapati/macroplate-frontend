@@ -20,3 +20,110 @@
     width: 100%;
     height: 100%;
 }
+
+.customerReviewSection {
+    padding: 5%;
+}
+
+.customerSayHeader {
+    margin-left: 24px;
+    margin-bottom: 52px;
+}
+
+.customerSayHeader p {
+    font-size: 52px;
+    letter-spacing: 0px;
+    line-height: 67px;
+    color: #fff;
+    font-family: 'SuisseWorks-Regular-WebS';
+    text-align: left;
+}
+
+.customer-review-title {
+    margin-bottom: 24px;
+    font-size: 26px;
+    /* font-size: 24px; */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    line-height: 41px;
+    color: #fff;
+    text-align: left;
+}
+
+.customer-name {
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #fff;
+    text-align: left;
+}
+
+.star-rating label {
+    color: #fc0;
+}
+
+.star-rating input {
+    display: none;
+}
+
+.star-rating {
+    display: flex;
+    flex-direction: row-reverse;
+    font-size: 26px;
+    justify-content: space-around;
+    text-align: center;
+    width: 150px;
+    margin-bottom: 34px;
+}
+
+.customerSayArrowsWrapper {
+    display: flex;
+    justify-content: right;
+    gap: 72px;
+}
+
+.customerSayArrowsWrapper svg {
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+}
+
+
+/* Responsive Styles Only */
+@media (max-width: 1024px) {
+    .customerSayContainer {
+        flex-direction: column;
+    }
+
+    .customerImageSection,
+    .customerReviewSection {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .customerSayArrowsWrapper {
+        justify-content: center;
+        gap: 48px;
+    }
+}
+
+@media (max-width: 768px) {
+    .customerSayHeader p {
+        font-size: 32px;
+        line-height: 45px;
+    }
+
+    .customer-review-title {
+        font-size: 20px;
+    }
+
+    .customer-name {
+        font-size: 16px;
+    }
+
+    .customerSayArrowsWrapper svg {
+        width: 36px;
+        height: 36px;
+    }
+}

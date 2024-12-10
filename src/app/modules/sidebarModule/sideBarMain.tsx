@@ -21,51 +21,9 @@ import './styles/Sidebar.css'
 import './styles/SelectYourPlan.css'
 
 const SidebarMain: React.FC = () => {
-    const { isSidebarOpen } = useSidebar();
+    const { isSidebarOpen, closeSidebar, checkoutData, setCheckoutData } = useSidebar();
     const [currentPage, setCurrentPage] = useState(1);
     const [validationErrors, setValidationErrors] = useState<Record<string, string | null>>({});
-    const { closeSidebar } = useSidebar();
-
-    // Function to get initial data from localStorage or set default values
-    const getInitialData = () => {
-        if (typeof window !== 'undefined') {
-            const savedData = localStorage.getItem('checkoutData');
-            return savedData
-                ? JSON.parse(savedData)
-                : {
-                    vanityName: '',
-                    mealPerDay: '2',
-                    programLength: '5',
-                    breakfastSelection: null,
-                    dietary: [],
-                    allergies: [],
-                    allergyNotes: '',
-                    snackProtein: 0,
-                    proteinSmoothy: 0,
-                    juice: 0,
-                    coffee: 0,
-                    email: '',
-                    zipCode: '',
-                    firstName: '',
-                    lastName: '',
-                    phone: '',
-                    address: '',
-                    suite: '',
-                    city: '',
-                    state: '',
-                    deliveryNotes: '',
-                    firstDeliveryDate: '',
-                    billingAddress: '',
-                    billingSuite: '',
-                    billingCity: '',
-                    billingState: '',
-                    billingZipCode: '',
-                };
-        }
-        return {};
-    };
-
-    const [checkoutData, setCheckoutData] = useState(getInitialData);
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
@@ -121,7 +79,7 @@ const SidebarMain: React.FC = () => {
 
     return (
         <>
-            {/* <div className="overlay" onClick={closeSidebar}></div> */}
+            <div className={`overlay ${isSidebarOpen ? 'open' : 'closed'}`} onClick={closeSidebar}></div>
             <div className={`sidebarWrapper ${isSidebarOpen ? 'open' : 'closed'}`}>
                 <SideBarHeader
                     currentPage={currentPage}

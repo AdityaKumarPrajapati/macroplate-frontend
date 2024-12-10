@@ -108,6 +108,12 @@ const SidebarMenuMain = () => {
         title='Activity Panel'
         fontIcon='bi-layers'
       />
+      <SidebarMenuItem
+        to='/apps/zipCode/zipCodeList'
+        icon='geolocation'
+        title='Add Zipcode'
+        fontIcon='bi-layers'
+      />
       {/* <div className='menu-item'>
         <a
           target='_blank'
