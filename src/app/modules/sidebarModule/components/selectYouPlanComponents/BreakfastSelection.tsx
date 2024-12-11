@@ -15,8 +15,8 @@ const BreakfastSelection: React.FC<BreakfastSelectionProps> = ({ checkoutData, s
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const selectedValue = e.target.value;
-        setCheckoutData(prev => ({ ...prev, breakfastSelection: selectedValue }));
-        setValidationErrors(prev => ({ ...prev, breakfastSelection: null }));
+        setCheckoutData(prev => ({ ...prev, breakfast: selectedValue }));
+        setValidationErrors(prev => ({ ...prev, breakfast: null }));
     };
 
     return (
@@ -25,9 +25,9 @@ const BreakfastSelection: React.FC<BreakfastSelectionProps> = ({ checkoutData, s
             <MealSelectionWrapper
                 dataObj={BreakfastContentData}
                 headetText='WOULD YOU LIKE BREAKFAST AS ONE MEAL?'
-                inputComponent={<RadioButton name="breakfastSelection" />}
+                inputComponent={<RadioButton name="breakfast" />}
                 onChange={handleChange}
-                checkedValues={checkoutData.breakfastSelection} // Single selected value
+                checkedValues={checkoutData.breakfast} // Single selected value
             />
         </div>
     );

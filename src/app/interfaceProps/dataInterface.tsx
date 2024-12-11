@@ -1,8 +1,8 @@
-export interface checkoutData {
+export interface CheckoutData {
     vanityName: string;
     mealPerDay: string;
     programLength: string;
-    breakfastSelection: string;
+    breakfast: string;
     dietary: string[];
     allergies: string[];
     allergyNotes: string;

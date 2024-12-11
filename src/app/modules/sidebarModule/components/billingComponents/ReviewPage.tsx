@@ -1,5 +1,5 @@
-import React from 'react';
-import { 
+import React, { useEffect } from 'react';
+import {
     getTotalAmount,
     mealPlanPrice,
     proteinSnackPrice,
@@ -7,7 +7,7 @@ import {
     juicePrice,
     coffeePrice,
     getTotalAmountWithDeliveryFeeAndDiscount
- } from '../../../../../_metronic/utils/priceUtils';
+} from '../../../../../_metronic/utils/priceUtils';
 import '../../styles/ReviewPage.css'
 import { TotalAmountCalculationWrapper } from '../../../../../_metronic/utilityComponents/TotalAmountCalculationWrapper';
 import { CouponCodeInput } from '../../../../../_metronic/utilityComponents/CouponCodeInput';
@@ -24,12 +24,21 @@ interface CheckoutData {
 
 interface ReviewPageProps {
     checkoutData: any;
+    setCheckoutData: React.Dispatch<React.SetStateAction<any>>;
 }
 
-const ReviewPage: React.FC<ReviewPageProps> = ({ checkoutData }) => {
+const ReviewPage: React.FC<ReviewPageProps> = ({ checkoutData, setCheckoutData }) => {
     const mealPlanPriceData = mealPlanPrice(checkoutData);
     const subTotalAmount = getTotalAmount(checkoutData);
     const totalAmountWithDeliveryFee = getTotalAmountWithDeliveryFeeAndDiscount(subTotalAmount, checkoutData.programLength, 6.80, 0);
+
+    useEffect(() => {
+        setCheckoutData((prev: any) => ({
+            ...prev,
+            subTotalAmount: parseFloat(subTotalAmount),
+            totalAmount: totalAmountWithDeliveryFee
+        }))
+    }, [subTotalAmount, totalAmountWithDeliveryFee, setCheckoutData]);
 
     return (
         <div className="reviewScreenWrapperContainer">
@@ -53,7 +62,7 @@ const ReviewPage: React.FC<ReviewPageProps> = ({ checkoutData }) => {
 
                     <hr />
 
-                    {checkoutData.snackProtein && (
+                    {checkoutData.snackProtein !== 0 && (
                         <>
                             <div className="reviewPageContentBox">
                                 <div className="reviewContentTitleContainer">
@@ -70,7 +79,7 @@ const ReviewPage: React.FC<ReviewPageProps> = ({ checkoutData }) => {
                         </>
                     )}
 
-                    {checkoutData.proteinSmoothy && (
+                    {checkoutData.proteinSmoothy !== 0 && (
                         <>
                             <div className="reviewPageContentBox">
                                 <div className="reviewContentTitleContainer">
@@ -87,7 +96,7 @@ const ReviewPage: React.FC<ReviewPageProps> = ({ checkoutData }) => {
                         </>
                     )}
 
-                    {checkoutData.juice && (
+                    {checkoutData.juice !== 0 && (
                         <>
                             <div className="reviewPageContentBox">
                                 <div className="reviewContentTitleContainer">
@@ -104,22 +113,23 @@ const ReviewPage: React.FC<ReviewPageProps> = ({ checkoutData }) => {
                         </>
                     )}
 
-                    {checkoutData.coffee && (
-                        <div className="reviewPageContentBox">
-                            <div className="reviewContentTitleContainer">
-                                <p className="reviewTitletext marginZero">Cold Brew Coffee</p>
+                    {checkoutData.coffee !== 0 && (
+                        <>
+                            <div className="reviewPageContentBox">
+                                <div className="reviewContentTitleContainer">
+                                    <p className="reviewTitletext marginZero">Cold Brew Coffee</p>
+                                </div>
+                                <div className="reviewPlanContentConatiner">
+                                    <p className="reviewPlanContent marginZero">
+                                        Coffees - {checkoutData.mealPerDay} Per Day - {checkoutData.programLength} Days
+                                    </p>
+                                    <p className="reviewPlanContentPrice marginZero">${coffeePrice(checkoutData)}</p>
+                                </div>
                             </div>
-                            <div className="reviewPlanContentConatiner">
-                                <p className="reviewPlanContent marginZero">
-                                    Coffees - {checkoutData.mealPerDay} Per Day - {checkoutData.programLength} Days
-                                </p>
-                                <p className="reviewPlanContentPrice marginZero">${coffeePrice(checkoutData)}</p>
-                            </div>
-                        </div>
+                            <hr />
+                        </>
                     )}
                 </div>
-
-                <hr />
 
                 <div className="totalAmountAndCouponCodeWrapper">
                     <TotalAmountCalculationWrapper

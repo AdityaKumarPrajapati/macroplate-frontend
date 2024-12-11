@@ -34,7 +34,7 @@ const MealSelection: React.FC<MealSelectionProps> = ({ checkoutData, setCheckout
             <BreakfastSelection
                 checkoutData={checkoutData}
                 setCheckoutData={setCheckoutData}
-                validationError={validationErrors.breakfastSelection}
+                validationError={validationErrors.breakfast}
                 setValidationErrors={setValidationErrors}
             />
             <hr />

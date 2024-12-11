@@ -43,7 +43,7 @@ const SidebarMain: React.FC = () => {
             errors.vanityName = checkoutData.vanityName ? null : 'Please Select Your Plan';
             errors.mealPerDay = checkoutData.mealPerDay ? null : 'Please select meals per day';
             errors.programLength = checkoutData.programLength ? null : 'Please select a program length';
-            errors.breakfastSelection = checkoutData.breakfastSelection ? null : 'Please select a breakfast option';
+            errors.breakfast = checkoutData.breakfast ? null : 'Please select a breakfast option';
             errors.email = checkoutData.email
                 ? isValidEmail(checkoutData.email)
                     ? null
@@ -64,18 +64,25 @@ const SidebarMain: React.FC = () => {
 
 
     const handleCheckoutClick = (nextPage: number) => {
-        const errors = validateSelections();
-        // console.log('---nextPage---', nextPage, errors);
-        // if (Object.keys(errors).length > 0) {
-        //     console.log('11111');
-        //     setValidationErrors(errors);
-        // } else {
-        // console.log('222222');
-        setValidationErrors({});
-        setCurrentPage(nextPage); // Proceed to next page
-        // }
-        console.log('----currentPage---', currentPage)
+        let errors = validateSelections();
+        console.log('---nextPage---', nextPage, errors);
+    
+        // Remove keys with null values
+        errors = Object.fromEntries(
+            Object.entries(errors).filter(([_, value]) => value !== null)
+        );
+    
+        if (Object.keys(errors).length > 0) {
+            console.log('11111'); // Errors present
+            setValidationErrors(errors);
+        } else {
+            console.log('222222'); // No errors
+            setValidationErrors({});
+            setCurrentPage(nextPage); // Proceed to next page
+        }
+        console.log('----currentPage---', currentPage);
     };
+    
 
     return (
         <>

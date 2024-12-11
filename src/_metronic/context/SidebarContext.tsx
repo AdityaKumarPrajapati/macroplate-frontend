@@ -1,10 +1,10 @@
 import React, { createContext, useState, useContext, ReactNode } from 'react';
-import { checkoutData } from '../../app/interfaceProps/dataInterface';
+import { CheckoutData } from '../../app/interfaceProps/dataInterface';
 
 // Define the type for the SidebarContext
 interface SidebarContextProps {
     isSidebarOpen: boolean;
-    checkoutData: checkoutData;
+    checkoutData: CheckoutData;
     toggleSidebar: () => void;
     closeSidebar: () => void;
     setCheckoutData: (data: any) => void;
@@ -43,14 +43,22 @@ export const SidebarProvider: React.FC<SidebarProviderProps> = ({ children }) =>
                     vanityName: '',
                     mealPerDay: '2',
                     programLength: '5',
-                    breakfastSelection: null,
+                    breakfast: null,
                     dietary: [],
                     allergies: [],
                     allergyNotes: '',
                     snackProtein: 0,
+                    snackPrice: 0,
+                    snackPlanId: '',
                     proteinSmoothy: 0,
+                    proteinSmoothyPrice: 0,
+                    proteinSmoothyPlanId: '',
                     juice: 0,
+                    juicePrice: 0,
+                    juicePlanId: '',
                     coffee: 0,
+                    coffeePrice: 0,
+                    coffeePlanId: '',
                     email: '',
                     zipCode: '',
                     firstName: '',
@@ -67,6 +75,32 @@ export const SidebarProvider: React.FC<SidebarProviderProps> = ({ children }) =>
                     billingCity: '',
                     billingState: '',
                     billingZipCode: '',
+                    planId: 'v4-trad-2-5',
+                    stripeToken: '',
+                    invitationCode: '',
+                    invitationReferralCode: '',
+                    planAmount: 0,
+                    carbs: '',
+                    protein: '',
+                    fat: '',
+                    googleAddress: '',
+                    marketingSource: [],
+                    samecheck: '',
+                    isAddressSameCheckByUser: true,
+                    acceptTnc: true,
+                    couponCode: '',
+                    couponValue: 0.00,
+                    remainingCreditBalance: 0.00,
+                    subTotalAmount: 0.00,
+                    totalAmount: 0.00,
+                    dailyDeliveryFee: 0.00,
+                    deliveryAmount: 0,
+                    discountCouponAmount: 0,
+                    discountCouponName: '',
+                    discountCouponType: '',
+                    isCouponApplied: false,
+                    totalAmountAfterDiscount: 0,
+                    cityNameByZipCode: null
                 };
         }
         return {};

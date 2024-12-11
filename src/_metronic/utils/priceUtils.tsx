@@ -1,6 +1,6 @@
 // utils/priceUtils.ts
 import { basePlanAmount, addonPrice } from '../config/basePlanAmount';
-import { CheckoutData } from '../types/checkoutData';
+import { CheckoutData } from '../../app/interfaceProps/dataInterface';
 
 export const getTotalAmount = (checkoutData: CheckoutData): string => {
     let totalAmount = 0;
@@ -34,35 +34,35 @@ export const getTotalAmount = (checkoutData: CheckoutData): string => {
 export const mealPlanPrice = (checkoutData: CheckoutData): any => {
     if (checkoutData.vanityName) {
         return (basePlanAmount[checkoutData.vanityName].price *
-            (checkoutData.mealPerDay * checkoutData.programLength) / 100);
+            (parseInt(checkoutData.mealPerDay) * parseInt(checkoutData.programLength)) / 100);
     }
 }
 
 export const proteinSnackPrice = (checkoutData: CheckoutData): any => {
     if (checkoutData.snackProtein) {
         return (checkoutData.snackProtein * addonPrice.snackProtein.price *
-            checkoutData.programLength / 100);
+            parseInt(checkoutData.programLength) / 100);
     }
 }
 
 export const proteinSmoothyPrice = (checkoutData: CheckoutData): any => {
     if (checkoutData.proteinSmoothy) {
         return (checkoutData.proteinSmoothy * addonPrice.proteinSmoothy.price *
-            checkoutData.programLength / 100);
+            parseInt(checkoutData.programLength) / 100);
     }
 }
 
 export const juicePrice = (checkoutData: CheckoutData): any => {
     if (checkoutData.juice) {
         return (checkoutData.juice * addonPrice.juice.price *
-            checkoutData.programLength / 100);
+            parseInt(checkoutData.programLength) / 100);
     }
 }
 
 export const coffeePrice = (checkoutData: CheckoutData): any => {
     if (checkoutData.coffee) {
         return (checkoutData.coffee * addonPrice.coffee.price *
-            checkoutData.programLength / 100);
+            parseInt(checkoutData.programLength) / 100);
     }
 }
 

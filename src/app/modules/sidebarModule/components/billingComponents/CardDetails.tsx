@@ -26,12 +26,14 @@ const CARD_ELEMENT_OPTIONS = {
 // Define the prop types for the component
 interface CardDetailsProps {
     onSubmit: (token: any | null) => void;
+    checkoutData: any;
+    setCheckoutData: any;
 }
 
 // Use forwardRef to expose the handleSubmit method to the parent component
 const CardDetails = forwardRef<{
     handleSubmit: () => Promise<void>;
-}, CardDetailsProps>(({ onSubmit }, ref: Ref<{ handleSubmit: () => Promise<void> }>) => {
+}, CardDetailsProps>(({ onSubmit, checkoutData, setCheckoutData }, ref: Ref<{ handleSubmit: () => Promise<void> }>) => {
     const stripe = useStripe();
     const elements = useElements();
     const [cardBrand, setCardBrand] = useState<string>('');
@@ -58,6 +60,10 @@ const CardDetails = forwardRef<{
             console.error(error.message);
         } else {
             console.log('----tokennn---', token);
+            setCheckoutData((prev: any) => ({
+                ...prev,
+                stripeToken: token?.id
+            }));
             onSubmit(token); // Pass the token back to the parent component
         }
     };

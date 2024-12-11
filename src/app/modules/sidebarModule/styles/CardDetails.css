@@ -58,6 +58,8 @@
     display: flex;
     align-items: center;
     position: relative;
+    /* flex-direction: column; */
+    gap: 8px;
 }
 
 .card-number {
@@ -93,4 +95,12 @@
 .expiry-cvc-container {
     display: flex;
     gap: 24px;
+}
+
+.card-brand-icon {
+    font-size: 32px !important;
+}
+
+.card-details-container .error-text {
+    width: 100%;
 }

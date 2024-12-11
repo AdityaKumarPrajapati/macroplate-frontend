@@ -37,8 +37,16 @@ const BillingPlan: React.FC<BillingPlanProps> = ({
 
     return (
         <div className='billingPlanPageContainer'>
-            <ReviewPage checkoutData={checkoutData} />
-            <CardDetails ref={cardDetailsRef} onSubmit={handleTokenSubmission} />
+            <ReviewPage 
+                checkoutData={checkoutData}
+                setCheckoutData={setCheckoutData}
+            />
+            <CardDetails 
+                ref={cardDetailsRef} 
+                onSubmit={handleTokenSubmission} 
+                checkoutData={checkoutData}
+                setCheckoutData= {setCheckoutData}
+            />
             <DeliveryInfo
                 checkoutData={checkoutData}
                 setCheckoutData={setCheckoutData}
