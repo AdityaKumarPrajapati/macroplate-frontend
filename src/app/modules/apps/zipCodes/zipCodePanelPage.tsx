@@ -26,7 +26,7 @@ const ZipCodePanelPanelPage = () => {
                     path='zipCodeList'
                     element={
                         <>
-                            <PageTitle breadcrumbs={zipCodePanelPanelBreadcrumbs}>ZipCode</PageTitle>
+                            <PageTitle breadcrumbs={zipCodePanelPanelBreadcrumbs}>Zipcodes</PageTitle>
                             <ZipCodeListWrapper />
                             {/* <div>Hello</div> */}
                         </>

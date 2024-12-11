@@ -19,8 +19,6 @@ const ZipCodeListTable = () => {
     data,
   })
 
-  console.log('----dataaaaaaa', data)
-
   return (
     <KTCardBody className='py-4'>
       <div className='table-responsive'>

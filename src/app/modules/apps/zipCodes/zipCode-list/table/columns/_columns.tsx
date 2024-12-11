@@ -8,6 +8,7 @@ import { ZipCodeListCustomHeader } from './ZipCodeListCustomHeader'
 // import {UserSelectionHeader} from './UserSelectionHeader'
 import { ZipCodeList } from '../../core/_models'
 import { capitalizeInitial } from '../../../../../../../_metronic/helpers'
+import { ZipCodeActionCell } from './ZipCodeActionCell'
 // import { ActivityListTypeInfoCell } from './ActivityListTypeInfoCell'
 
 const zipCodeListColumns: ReadonlyArray<Column<ZipCodeList>> = [
@@ -42,7 +43,7 @@ const zipCodeListColumns: ReadonlyArray<Column<ZipCodeList>> = [
       <ZipCodeListCustomHeader tableProps={props} title='Actions' className='text-end min-w-100px' />
     ),
     id: 'actions',
-    // Cell: ({ ...props }) => <UserActionsCell id={props.data[props.row.index].id} />,
+    Cell: ({ ...props }) => <ZipCodeActionCell id={props.data[props.row.index].id} />,
   },
   // {
   //   Header: (props) => <ZipCodeListCustomHeader tableProps={props} title='Type' className='min-w-125px' />,

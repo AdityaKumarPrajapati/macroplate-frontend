@@ -13,7 +13,7 @@ const ZipCodeListHeader = () => {
       <div className='card-toolbar'>
         {/* begin::Group actions */}
         {/* {selected.length > 0 ? <UsersListGrouping /> : <UsersListToolbar />} */}
-        <ZipCodeListToolbar />
+        {/* <ZipCodeListToolbar /> */}
         {/* end::Group actions */}
       </div>
       {/* end::Card toolbar */}
