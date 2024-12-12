@@ -1,7 +1,11 @@
-import { ChoosePlanSvg } from "../../../_metronic/utilityComponents/choosePlanSvg";
-import { HeatAndEnjoySvg } from "../../../_metronic/utilityComponents/heatAndEnjoySvg";
-import { WeDeliverSvg } from "../../../_metronic/utilityComponents/weDeliverSvg";
-import { WePrepSvg } from "../../../_metronic/utilityComponents/wePrepSvg";
+// import { ChoosePlanSvg } from "../../../_metronic/utilityComponents/choosePlanSvg";
+// import { HeatAndEnjoySvg } from "../../../_metronic/utilityComponents/heatAndEnjoySvg";
+// import { WeDeliverSvg } from "../../../_metronic/utilityComponents/weDeliverSvg";
+// import { WePrepSvg } from "../../../_metronic/utilityComponents/wePrepSvg";
+import { ChoosePlanSvg } from '../../../_metronic/utilityComponents/ChoosePlanSvg';
+import { HeatAndEnjoySvg } from '../../../_metronic/utilityComponents/HeatAndEnjoySvg';
+import { WeDeliverSvg } from '../../../_metronic/utilityComponents/WeDeliverSvg';
+import { WePrepSvg } from '../../../_metronic/utilityComponents/WePrepSvg';
 import './styles/FoodSteps.css'
 
 const FoodSteps = () => {

@@ -2,6 +2,7 @@ import React, { useState, useImperativeHandle, forwardRef, Ref } from 'react';
 import { useStripe, useElements, CardNumberElement, CardExpiryElement, CardCvcElement } from '@stripe/react-stripe-js';
 import '../../styles/CardDetails.css'
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import axios from 'axios';
 
 // Define the options for the Stripe Card Elements
 const CARD_ELEMENT_OPTIONS = {
@@ -65,6 +66,21 @@ const CardDetails = forwardRef<{
                 stripeToken: token?.id
             }));
             onSubmit(token); // Pass the token back to the parent component
+console.log(checkoutData, "setCheckoutData")
+            try {
+                checkoutData.firstDeliveryDate = 'Monday, Dec 23, 2024';
+                checkoutData.snackPlanId = 'snacks-1-5';
+                checkoutData.juicePlanId = 'v2-cold-pressed-juice-4-5';
+console.log(checkoutData, "setCheckoutData1")
+
+                const res = await axios.post('http://localhost:8000/api/signup', checkoutData);
+                console.log(res, "API RESPONSE")
+                // setResponse(res.data.message); // Handle success response
+              } catch (error) {
+                console.error(error);
+                console.log('An error occurred');
+              }
+
         }
     };
 

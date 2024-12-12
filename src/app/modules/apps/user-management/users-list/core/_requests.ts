@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from "axios";
-import axiosInstance from "../../../../../../_metronic/helpers/AxiosInstance";
+import axiosInstance from "../../../../../../_metronic/helpers/axiosInstance";
 import { ID, Response } from "../../../../../../_metronic/helpers";
 import { User, UsersQueryResponse } from "./_models";
 

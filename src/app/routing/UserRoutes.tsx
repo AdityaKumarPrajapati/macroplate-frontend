@@ -1,6 +1,7 @@
 import { Route, Routes, Outlet, Navigate } from "react-router-dom";
 import { NavBarComponents } from "../../_metronic/homeLayout/components/NavBarComponents";
-import { ActivePlanPage } from "../pages/user/activePlanPage";
+// import { ActivePlanPage } from "../pages/user/activePlanPage";
+import { ActivePlanPage } from "../pages/user/ActivePlanPage";
 
 const UserRoutes = () => {
     return (
