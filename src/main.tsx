@@ -35,6 +35,7 @@ import { SidebarProvider } from './_metronic/context/SidebarContext'
 setupAxios(axios)
 Chart.register(...registerables)
 
+
 const queryClient = new QueryClient()
 const container = document.getElementById('root')
 if (container) {
