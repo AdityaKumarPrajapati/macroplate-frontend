@@ -1,17 +1,17 @@
-// src/components/SideBar/components/BillingPage/BillingPlan.tsx
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { CardDetails } from './CardDetails';
 import { ReviewPage } from './ReviewPage';
 import DeliveryInfo from '../shippingComponents/DeliveryInfo';
 import { SidebarButton } from '../utilityComponents/SidebarButton';
-// import styles from '../../css/BillingPlan.module.css'; // Update import path as needed
-import '../../styles/BillingPlan.css'
+import '../../styles/BillingPlan.css';
+import { useNavigate } from 'react-router-dom';
+import { useSidebar } from '../../../../../_metronic/context/SidebarContext';
 
 interface BillingPlanProps {
-    checkoutData: any; // Replace `any` with a more specific type if available
-    setCheckoutData: React.Dispatch<React.SetStateAction<any>>; // Update `any` with the specific type of the state
-    validationErrors: Record<string, string | null>; // Update with specific validation error types if available
-    setValidationErrors: React.Dispatch<React.SetStateAction<Record<string, string | null>>>; // Update with the specific type
+    checkoutData: any;
+    setCheckoutData: React.Dispatch<React.SetStateAction<any>>;
+    validationErrors: Record<string, string | null>;
+    setValidationErrors: React.Dispatch<React.SetStateAction<Record<string, string | null>>>;
     currentPage: number;
 }
 
@@ -22,30 +22,36 @@ const BillingPlan: React.FC<BillingPlanProps> = ({
     setValidationErrors,
     currentPage,
 }) => {
-    const cardDetailsRef = useRef<any>(null); // Replace `any` with the actual type if available
+    const cardDetailsRef = useRef<any>(null);
+    const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
+    const { closeSidebar } = useSidebar();
 
     const handleTokenSubmission = (token: any) => {
-        // Perform any necessary actions with the token here (e.g., sending to backend)
         console.log('Received token:', token);
     };
 
-    const handlePlaceOrder = () => {
+    const handlePlaceOrder = async () => {
         if (cardDetailsRef.current) {
-            cardDetailsRef.current.handleSubmit();
+            setLoading(true);
+            await cardDetailsRef.current.handleSubmit();
+            setLoading(false);
+            navigate('/thank-you');
+            closeSidebar();
         }
     };
 
     return (
         <div className='billingPlanPageContainer'>
-            <ReviewPage 
+            <ReviewPage
                 checkoutData={checkoutData}
                 setCheckoutData={setCheckoutData}
             />
-            <CardDetails 
-                ref={cardDetailsRef} 
-                onSubmit={handleTokenSubmission} 
+            <CardDetails
+                ref={cardDetailsRef}
+                onSubmit={handleTokenSubmission}
                 checkoutData={checkoutData}
-                setCheckoutData= {setCheckoutData}
+                setCheckoutData={setCheckoutData}
             />
             <DeliveryInfo
                 checkoutData={checkoutData}
@@ -57,7 +63,7 @@ const BillingPlan: React.FC<BillingPlanProps> = ({
             />
             <SidebarButton
                 onCheckoutClick={handlePlaceOrder}
-                text='PLACE ORDER'
+                text={loading ? <span className='loader'></span> : 'PLACE ORDER'}
                 currentPage={currentPage}
             />
         </div>

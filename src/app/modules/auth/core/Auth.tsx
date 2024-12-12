@@ -48,6 +48,7 @@ const AuthProvider: FC<WithChildren> = ({ children }) => {
     setCurrentUser(undefined)
     localStorage.removeItem('user') // Remove user on logout
     localStorage.removeItem('auth')
+    localStorage.removeItem('checkoutData')
   }
 
   return (

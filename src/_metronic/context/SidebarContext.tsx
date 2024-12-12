@@ -46,7 +46,7 @@ export const SidebarProvider: React.FC<SidebarProviderProps> = ({ children }) =>
                     breakfast: null,
                     dietary: [],
                     allergies: [],
-                    allergyNotes: '',
+                    allergyNotes: 'allergyNotes',
                     snackProtein: 0,
                     snackPrice: 0,
                     snackPlanId: 'snacks-1-5',

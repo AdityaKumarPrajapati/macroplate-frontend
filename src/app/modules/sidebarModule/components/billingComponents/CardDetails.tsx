@@ -61,25 +61,28 @@ const CardDetails = forwardRef<{
             console.error(error.message);
         } else {
             console.log('----tokennn---', token);
-            setCheckoutData((prev: any) => ({
+            await setCheckoutData((prev: any) => ({
                 ...prev,
                 stripeToken: token?.id
             }));
             onSubmit(token); // Pass the token back to the parent component
-console.log(checkoutData, "setCheckoutData")
+            console.log(checkoutData, "setCheckoutData")
             try {
-                checkoutData.firstDeliveryDate = 'Monday, Dec 23, 2024';
-                checkoutData.snackPlanId = 'snacks-1-5';
-                checkoutData.juicePlanId = 'v2-cold-pressed-juice-4-5';
-console.log(checkoutData, "setCheckoutData1")
+                // checkoutData.firstDeliveryDate = 'Monday, Dec 23, 2024';
+                // checkoutData.snackPlanId = 'snacks-1-5';
+                // checkoutData.juicePlanId = 'v2-cold-pressed-juice-4-5';
+                // console.log(checkoutData, "setCheckoutData1")
 
-                const res = await axios.post('http://localhost:8000/api/signup', checkoutData);
+                const res = await axios.post('http://localhost:8000/api/signup', {
+                    ...checkoutData,
+                    stripeToken: token?.id,
+                });
                 console.log(res, "API RESPONSE")
                 // setResponse(res.data.message); // Handle success response
-              } catch (error) {
+            } catch (error) {
                 console.error(error);
                 console.log('An error occurred');
-              }
+            }
 
         }
     };

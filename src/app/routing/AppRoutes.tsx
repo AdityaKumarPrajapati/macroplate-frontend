@@ -6,6 +6,7 @@ import { Logout, AuthPage, useAuth } from '../modules/auth'
 import { App } from '../App'
 import { HomePageRoutes } from './HomeRoutes'
 import { UserRoutes } from './UserRoutes'
+import ThankYou from '../pages/thankYou/ThankYou'
 
 const { BASE_URL } = import.meta.env
 
@@ -21,6 +22,7 @@ const AppRoutes: FC = () => {
           <Route path='/user/*' element={<HomePageRoutes />} />
           <Route path='error/*' element={<ErrorsPage />} />
           <Route path='logout' element={<Logout />} />
+          {/* <Route path='/thank-you' element={<ThankYou />} /> */}
 
           {currentUser && currentUser?.user_type === 'admin' ? (
             <>
@@ -38,6 +40,7 @@ const AppRoutes: FC = () => {
               <Route path='*' element={<Navigate to='/auth' />} />
             </>
           )}
+          <Route path='/thank-you' element={<ThankYou />} />
         </Route>
       </Routes>
     </BrowserRouter>

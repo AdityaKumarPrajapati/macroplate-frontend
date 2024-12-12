@@ -7,7 +7,7 @@ import { Button } from 'react-bootstrap';
 
 interface SidebarButtonProps {
     onCheckoutClick: () => void;
-    text: string;
+    text: any;
     currentPage?: number;
 }
 
