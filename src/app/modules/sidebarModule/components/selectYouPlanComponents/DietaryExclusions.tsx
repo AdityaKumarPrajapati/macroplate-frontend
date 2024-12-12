@@ -5,13 +5,14 @@ import { MealSelectionWrapper } from "../utilityComponents/MealSelectionWrapper"
 import { InputField } from "../../../../../_metronic/utilityComponents/InputField";
 // import styles from "@/styles/DietaryExclusions.module.css";
 import '../../styles/DietaryExclusions.css'
+import { CheckoutData } from "../../../../interfaceProps/dataInterface";
 
 // Define the CheckoutData type
-interface CheckoutData {
-    allergies: string[];
-    dietary: string[];
-    allergyNotes?: string;
-}
+// interface CheckoutData {
+//     allergies: string[];
+//     dietary: string[];
+//     allergyNotes?: string;
+// }
 
 interface DietaryExclusionsProps {
     checkoutData: CheckoutData;

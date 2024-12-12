@@ -2,8 +2,9 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import { getTotalAmount } from '../../../../../_metronic/utils/priceUtils';
-import { CheckoutData } from '../../../../../_metronic/types/checkoutData';
+// import { CheckoutData } from '../../../../../_metronic/types/checkoutData';
 import '../utilityComponents/styles/SideBarCheckoutButton.css';
+import { CheckoutData } from '../../../../interfaceProps/dataInterface';
 
 interface SideBarCheckoutButtonProps {
     onCheckoutClick: () => void;

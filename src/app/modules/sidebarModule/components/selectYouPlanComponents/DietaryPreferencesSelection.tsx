@@ -3,14 +3,15 @@ import { DietaryPreferencesContentData } from '../../../../../_metronic/assets/d
 import { MealSelectionWrapper } from '../utilityComponents/MealSelectionWrapper';
 import { CheckboxButton } from '../../../../../_metronic/utilityComponents/CheckboxButton';
 import { dietaryPreferenceRules } from '../../../../rules/dietaryPreferenceRules';
+import { CheckoutData } from '../../../../interfaceProps/dataInterface';
 // import styles from '../../css/DietaryPreferencesSelection.module.css'; // Import CSS module
 
 // Define the type for checkoutData
-interface CheckoutData {
-    dietary: string[];
-    allergies: string[];
-    [key: string]: any; // This allows for additional properties if necessary
-}
+// interface CheckoutData {
+//     dietary: string[];
+//     allergies: string[];
+//     [key: string]: any; // This allows for additional properties if necessary
+// }
 
 interface DietaryPreferencesSelectionProps {
     checkoutData: CheckoutData;

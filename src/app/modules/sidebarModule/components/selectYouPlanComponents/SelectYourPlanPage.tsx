@@ -3,14 +3,15 @@ import React from 'react';
 import { SelectYourPlan } from './SelectYourPlan';
 import { MealSelection } from './MealSelection';
 import { InputField } from '../../../../../_metronic/utilityComponents/InputField';
+import { CheckoutData } from '../../../../interfaceProps/dataInterface';
 
 // Define types for checkoutData and validationErrors
-interface CheckoutData {
-    vanityName: string;
-    email: string;
-    zipCode: string;
-    [key: string]: any; // Add other properties as needed
-}
+// interface CheckoutData {
+//     vanityName: string;
+//     email: string;
+//     zipCode: string;
+//     [key: string]: any; // Add other properties as needed
+// }
 
 interface ValidationErrors {
     vanityName?: string;

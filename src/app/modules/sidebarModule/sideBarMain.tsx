@@ -65,24 +65,20 @@ const SidebarMain: React.FC = () => {
 
     const handleCheckoutClick = (nextPage: number) => {
         let errors = validateSelections();
-        console.log('---nextPage---', nextPage, errors);
-    
+
         // Remove keys with null values
         errors = Object.fromEntries(
             Object.entries(errors).filter(([_, value]) => value !== null)
         );
-    
+
         if (Object.keys(errors).length > 0) {
-            console.log('11111'); // Errors present
             setValidationErrors(errors);
         } else {
-            console.log('222222'); // No errors
             setValidationErrors({});
             setCurrentPage(nextPage); // Proceed to next page
         }
-        console.log('----currentPage---', currentPage);
     };
-    
+
 
     return (
         <>

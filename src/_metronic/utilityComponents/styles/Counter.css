@@ -63,4 +63,11 @@ h4 {
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
     line-height: 1.2;
+    height: auto;
+}
+
+.labelContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 }
