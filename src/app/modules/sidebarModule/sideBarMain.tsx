@@ -10,7 +10,7 @@ import { ShippingPlan } from './components/shippingComponents/ShippingPlan';
 import { BillingPlan } from './components/billingComponents/BillingPlan';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Load your Stripe public key
 const stripePromise = loadStripe('pk_test_pndCOLy4iBu4IWLtmiIiPGF5');

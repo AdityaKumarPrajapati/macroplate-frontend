@@ -33,7 +33,7 @@ const SeeDetails: React.FC<SeeDetailsProps> = ({ planName, show, onClose, active
     const planDetails = Object.values(SelectYourPlanContentData);
 
     return (
-        <Offcanvas show={show} onHide={onClose} placement="end" backdrop={false} style={{ maxWidth: '554px', width: '100%' }}>
+        <Offcanvas show={show} onHide={onClose} placement="end" backdrop={false} style={{ maxWidth: '554px', width: '100%' }} scroll>
             <Offcanvas.Header closeButton>
                 <Offcanvas.Title>{currentPlanName ? currentPlanName.toUpperCase() : ''} Plan Details</Offcanvas.Title>
             </Offcanvas.Header>
