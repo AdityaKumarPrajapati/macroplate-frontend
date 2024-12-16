@@ -4,6 +4,7 @@ import { SelectYourPlanContentData } from '../../../_metronic/assets/dataContent
 import { PrevArrowSvg } from '../../../_metronic/utilityComponents/PrevArrowSvg';
 import { NextArrowSvg } from '../../../_metronic/utilityComponents/NextArrowSvg';
 import './styles/SeeDetails.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 interface SeeDetailsProps {
     planName: string | null;
