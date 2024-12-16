@@ -68,7 +68,7 @@ const ProfilePage = () => {
           element={
             <>
               <PageTitle breadcrumbs={profileBreadCrumbs}>Account</PageTitle>
-              <Overview />
+              <Overview user={userData} />
             </>
           }
         />

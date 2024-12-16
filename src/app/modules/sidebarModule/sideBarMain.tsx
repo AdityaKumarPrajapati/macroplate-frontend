@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSidebar } from '../../../_metronic/context/SidebarContext';
 import { SideBarHeader } from './SideBarHeader';
+import { Offcanvas } from 'react-bootstrap';
 import { SelectYourPlanPage } from './components/selectYouPlanComponents/SelectYourPlanPage';
 import { SideBarCheckoutButton } from './components/utilityComponents/SideBarCheckoutButton';
 import { BackButtonSvg } from '../../../_metronic/utilityComponents/BackButtonSvg';
@@ -9,6 +10,7 @@ import { ShippingPlan } from './components/shippingComponents/ShippingPlan';
 import { BillingPlan } from './components/billingComponents/BillingPlan';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Load your Stripe public key
 const stripePromise = loadStripe('pk_test_pndCOLy4iBu4IWLtmiIiPGF5');
@@ -21,7 +23,7 @@ import './styles/Sidebar.css'
 import './styles/SelectYourPlan.css'
 
 const SidebarMain: React.FC = () => {
-    const { isSidebarOpen, closeSidebar, checkoutData, setCheckoutData } = useSidebar();
+    const { isSidebarOpen, closeSidebar, checkoutData, setCheckoutData, toggleSidebar } = useSidebar();
     const [currentPage, setCurrentPage] = useState(1);
     const [validationErrors, setValidationErrors] = useState<Record<string, string | null>>({});
 
@@ -81,12 +83,13 @@ const SidebarMain: React.FC = () => {
 
 
     return (
-        <>
-            <div className={`overlay ${isSidebarOpen ? 'open' : 'closed'}`} onClick={closeSidebar}></div>
-            <div className={`sidebarWrapper ${isSidebarOpen ? 'open' : 'closed'}`}>
-                <SideBarHeader
-                    currentPage={currentPage}
-                />
+        <Offcanvas show={isSidebarOpen} onHide={closeSidebar} placement="end" style={{ maxWidth: '554px', width: '100%' }} scroll backdrop>
+            <Offcanvas.Header style={{ padding: '0', display: 'block' }}>
+                <Offcanvas.Title>
+                    <SideBarHeader currentPage={currentPage} />
+                </Offcanvas.Title>
+            </Offcanvas.Header>
+            <Offcanvas.Body style={{ padding: '0' }}>
                 {currentPage === 1 && (
                     <div className='step1Wrapper'>
                         <div className='step-1'>
@@ -142,8 +145,8 @@ const SidebarMain: React.FC = () => {
                         </div>
                     </div>
                 )}
-            </div>
-        </>
+            </Offcanvas.Body>
+        </Offcanvas>
     );
 };
 

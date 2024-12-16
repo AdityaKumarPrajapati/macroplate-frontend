@@ -1,4 +1,4 @@
-import { Navbar } from './Navbar';
+import { NavbarComp } from './NavbarComp';
 import { LoginAndAccount } from './LoginAndAccount';
 import '../css/Navbar.css'
 import { Outlet } from 'react-router-dom';
@@ -10,8 +10,8 @@ const NavBarComponents = () => {
         <div className='navBarWrapper'>
             <SidebarMain />
             <div className='navBarComponentsWrapper'>
-                <div className='navBarComponents container'>
-                    <Navbar />
+                <div className='navBarComponents container paddingZero'>
+                    <NavbarComp />
                     <LoginAndAccount />
                 </div>
             </div>

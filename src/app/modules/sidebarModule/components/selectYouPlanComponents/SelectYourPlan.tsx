@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { SelectYourPlanContentData } from '../../../../../_metronic/assets/dataContentObjects/SelectYourPlanContentData';
 import { RadioButton } from '../../../../../_metronic/utilityComponents/RadioButton';
 import '../../styles/SelectYourPlan.css'
+import SeeDetails from '../../../../pages/seeDetails/SeeDetails';
 
 interface SelectYourPlanProps {
     checkoutData: any; // Replace `any` with a more specific type
@@ -25,43 +26,71 @@ const SelectYourPlan: React.FC<SelectYourPlanProps> = ({ checkoutData, setChecko
         setValidationErrors((prev: any) => ({ ...prev, vanityName: null }));
     };
 
+    const [showDetails, setShowDetails] = useState(false);
+    const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
+    const [activeIndex, setActiveIndex] = useState<number>(0);
+
+    const handleSeeDetailsClick = (plan: string) => {
+        setSelectedPlan(plan);
+        setShowDetails(true);
+        const index = Object.keys(SelectYourPlanContentData).indexOf(plan);  // Find the index of the selected plan
+        setActiveIndex(index);
+    };
+
+    const handleClose = () => setShowDetails(false);
+
     const chunkedData = chunkArray(Object.entries(SelectYourPlanContentData), 2);
 
     return (
-        <div className="selectPlanImageWrapper">
-            {validationError && <p className="error-text">{validationError}</p>}
-            {
-                chunkedData.map((chunk, chunkIndex) => (
-                    <div key={chunkIndex} className="selectYouPlanWrapper">
-                        {chunk.map(([key, item], itemIndex) => (
-                            <div key={itemIndex} className="planImageCardWrapper">
-                                <div className={`checkoutCard ${checkoutData.vanityName === item?.dataValue ? 'selected' : checkoutData.vanityName === '' ? '' : 'notSelected'}`}>
-                                    <figure className="marginZero selectPlanFigure">
-                                        <img src={item?.imageSource} alt={item?.planName} className={`${checkoutData.vanityName === item?.dataValue ? 'selected' : checkoutData.vanityName === '' ? '' : 'notSelected'}`} />
-                                        <div className="formCheck">
-                                            <RadioButton
-                                                name='vanity'
-                                                id={item?.id}
-                                                value={item?.dataValue}
-                                                onChange={handleChange}
-                                                checked={Array.isArray(checkoutData.vanityName)
-                                                    ? checkoutData.vanityName.includes(item?.dataValue)
-                                                    : checkoutData.vanityName === item?.dataValue}
-                                                label=''
-                                            />
+        <>
+            <div className="selectPlanImageWrapper">
+                {validationError && <p className="error-text">{validationError}</p>}
+                {
+                    chunkedData.map((chunk, chunkIndex) => (
+                        <div key={chunkIndex} className="selectYouPlanWrapper">
+                            {chunk.map(([key, item], itemIndex) => (
+                                <div key={itemIndex} className="planImageCardWrapper">
+                                    <div className={`checkoutCard ${checkoutData.vanityName === item?.dataValue ? 'selected' : checkoutData.vanityName === '' ? '' : 'notSelected'}`}>
+                                        <figure className="marginZero selectPlanFigure">
+                                            <img src={item?.imageSource} alt={item?.planName} className={`${checkoutData.vanityName === item?.dataValue ? 'selected' : checkoutData.vanityName === '' ? '' : 'notSelected'}`} />
+                                            <div className="formCheck">
+                                                <RadioButton
+                                                    name='vanity'
+                                                    id={item?.id}
+                                                    value={item?.dataValue}
+                                                    onChange={handleChange}
+                                                    checked={Array.isArray(checkoutData.vanityName)
+                                                        ? checkoutData.vanityName.includes(item?.dataValue)
+                                                        : checkoutData.vanityName === item?.dataValue}
+                                                    label=''
+                                                />
+                                            </div>
+                                        </figure>
+                                        <div className="cardDetails">
+                                            <p className="marginZero planName">{item?.planName}</p>
+                                            <a
+                                                href="#"
+                                                onClick={() => handleSeeDetailsClick(key)}
+                                                className="seeDetails"
+                                            >
+                                                see details
+                                            </a>
                                         </div>
-                                    </figure>
-                                    <div className="cardDetails">
-                                        <p className="marginZero planName">{item?.planName}</p>
-                                        <a href="#" className="seeDetails">see details</a>
                                     </div>
                                 </div>
-                            </div>
-                        ))}
-                    </div>
-                ))
-            }
-        </div>
+                            ))}
+                        </div>
+                    ))
+                }
+            </div>
+            {/* Reusable Plan Details Carousel */}
+            <SeeDetails
+                planName={selectedPlan}
+                show={showDetails}
+                onClose={handleClose}
+                activeIndex={activeIndex}
+            />
+        </>
     );
 };
 

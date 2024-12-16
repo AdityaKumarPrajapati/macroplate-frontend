@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const NavbarComp = () => {
     return (
-        <nav className="navbar">
+        <nav className="navbar paddingZero">
             <div className="nav-container">
                 <Link to="/user" className="nav-logo">
                     <svg className="macroplateSvg" xmlns="http://www.w3.org/2000/svg" width="223" height="19" viewBox="0 0 223 19" fill="none">
@@ -44,4 +44,4 @@ const Navbar = () => {
     );
 }
 
-export { Navbar }
+export { NavbarComp }

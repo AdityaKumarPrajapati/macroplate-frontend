@@ -4,6 +4,7 @@ import { HomePage } from "../pages/homePage/HomePage";
 import { OurApproach } from "../pages/ourApproach/OurApproach";
 import { HowItWorks } from "../pages/howItWorks/HowItWorks";
 import ThankYou from "../pages/thankYou/ThankYou";
+// import SeeDetails from "../pages/seeDetails/SeeDetails";
 
 const HomePageRoutes = () => {
     return (
@@ -13,6 +14,7 @@ const HomePageRoutes = () => {
                 <Route path="our-approach" element={<OurApproach />} />
                 <Route path="how-it-works" element={<HowItWorks />} />
                 <Route path="/thank-you" element={<ThankYou />} />
+                {/* <Route path="/see-details" element={<SeeDetails />} /> */}
             </Route>
         </Routes>
     );

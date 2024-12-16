@@ -6,7 +6,7 @@ const LoginAndAccount = () => {
     const {logout, currentUser} = useAuth();
     const { toggleSidebar } = useSidebar();
     return (
-        <nav className="navbar">
+        <nav className="navbar paddingZero">
             <div className="nav-container">
                 <ul className="nav-menu">
                     {currentUser ? (

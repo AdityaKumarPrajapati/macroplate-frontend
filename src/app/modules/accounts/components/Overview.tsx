@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { KTIcon } from '../../../../_metronic/helpers'
+import { KTIcon, capitalizeInitial } from '../../../../_metronic/helpers'
 import {
   ChartsWidget1,
   ListsWidget5,
@@ -7,9 +7,13 @@ import {
   TablesWidget5,
 } from '../../../../_metronic/partials/widgets'
 import { useAuth } from '../../auth'
+import { FC } from 'react'
+import { User } from '../../apps/user-management/users-list/core/_models'
 
-export function Overview() {
+const Overview: FC<{ user: User }> = ({ user }) => {
   const { currentUser } = useAuth()
+  let userDetails: any;
+  userDetails = user ? user : currentUser;
   return (
     <>
       <div className='card mb-5 mb-xl-10' id='kt_profile_details_view'>
@@ -29,7 +33,7 @@ export function Overview() {
 
             <div className='col-lg-8'>
               <span className='fw-bolder fs-6 text-gray-900'>
-                {currentUser?.first_name} {currentUser?.last_name}
+                {capitalizeInitial(userDetails.first_name)} {capitalizeInitial(userDetails.last_name)}
               </span>
             </div>
           </div>
@@ -54,7 +58,8 @@ export function Overview() {
 
             <div className='col-lg-8 d-flex align-items-center'>
               <span className='fw-bolder fs-6 me-2'>
-              {currentUser?.phone}
+                {/* need to change later */}
+                {currentUser?.phone}
               </span>
 
               <span className='badge badge-success'>Verified</span>
@@ -143,3 +148,6 @@ export function Overview() {
     </>
   )
 }
+
+
+export { Overview }

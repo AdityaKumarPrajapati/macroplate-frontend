@@ -7,6 +7,7 @@ import { User } from '../apps/user-management/users-list/core/_models'
 
 const ProfileHeader: FC<{ user: User }> = ({ user }) => {
   const location = useLocation()
+  // console.log('---user1111----', user);
 
   return (
     <div className='card mb-5 mb-xl-10'>

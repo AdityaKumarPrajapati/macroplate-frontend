@@ -80,6 +80,9 @@
 .mealPlanSliderDescContainer {
   padding-top: 64px;
   margin-bottom: 85px;
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
 }
 
 .thoughtFullyCookedText {
