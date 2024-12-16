@@ -1,0 +1,17 @@
+@import url('../../../../_metronic/assets/css/global.css');
+
+
+.carousel-control-next, .carousel-control-prev {
+    top: 45% !important;
+    width: 8% !important;
+    height: 6% !important;
+    opacity: 1 !important;
+}
+
+.seeDetailsArrow {
+    background: white;
+    border-radius: 100%;
+    height: 42px;
+    width: 42px;
+    cursor: pointer;
+}

@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Offcanvas, Carousel } from 'react-bootstrap';
 import { SelectYourPlanContentData } from '../../../_metronic/assets/dataContentObjects/SelectYourPlanContentData';
-// import { SelectYourPlanContentData } from '../../../../../_metronic/assets/dataContentObjects/SelectYourPlanContentData';
+import { PrevArrowSvg } from '../../../_metronic/utilityComponents/PrevArrowSvg';
+import { NextArrowSvg } from '../../../_metronic/utilityComponents/NextArrowSvg';
+import './styles/SeeDetails.css';
 
 interface SeeDetailsProps {
     planName: string | null;
@@ -36,17 +38,45 @@ const SeeDetails: React.FC<SeeDetailsProps> = ({ planName, show, onClose, active
                 <Offcanvas.Title>{currentPlanName ? currentPlanName.toUpperCase() : ''} Plan Details</Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
-                <Carousel activeIndex={currentActiveIndex} onSelect={handleSelect} indicators={false}>
-                    {planDetails.map((item, index) => (
-                        <Carousel.Item key={index}>
-                            <img className="d-block w-100" src={item.imageSource} alt={item.planName} />
-                            <Carousel.Caption>
-                                <h5>{item.planName}</h5>
-                                <p>{`Description for ${item.planName}`}</p>
-                            </Carousel.Caption>
-                        </Carousel.Item>
-                    ))}
-                </Carousel>
+                <div className="carousel-wrapper position-relative">
+                    <Carousel
+                        activeIndex={currentActiveIndex}
+                        onSelect={handleSelect}
+                        indicators={false}
+                        // controls={false}
+                        interval={null} 
+                        prevIcon={
+                            <PrevArrowSvg
+                                className="custom-prev position-absolute top-50 start-0 translate-middle-y seeDetailsArrow"
+                                onClick={(e: any) => {
+                                    // e.stopPropagation();
+                                    handleSelect((currentActiveIndex - 1 + planDetails.length) % planDetails.length)
+                                }}
+                                color='#000'
+                            />
+                        }
+                        nextIcon={
+                            <NextArrowSvg
+                                className="custom-next position-absolute top-50 end-0 translate-middle-y seeDetailsArrow"
+                                onClick={(e: any) => {
+                                    // e.stopPropagation();
+                                    handleSelect((currentActiveIndex + 1) % planDetails.length)
+                                }}
+                                color='#000'
+                            />
+                        }
+                    >
+                        {planDetails.map((item, index) => (
+                            <Carousel.Item key={index}>
+                                <img className="d-block w-100" src={item.imageSource} alt={item.planName} />
+                                <Carousel.Caption>
+                                    <h5>{item.planName}</h5>
+                                    <p>{`Description for ${item.planName}`}</p>
+                                </Carousel.Caption>
+                            </Carousel.Item>
+                        ))}
+                    </Carousel>
+                </div>
             </Offcanvas.Body>
         </Offcanvas>
     );
