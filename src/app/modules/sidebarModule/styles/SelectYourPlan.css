@@ -38,6 +38,10 @@
     filter: brightness(0.9);
 }
 
+.card {
+    /* border: 2px solid #000 !important; */
+}
+
 .card-img, .card-img-top {
     object-fit: cover;
     transition: opacity 0.3s ease-in-out;

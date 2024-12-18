@@ -1,17 +1,157 @@
 @import url('../../../../_metronic/assets/css/global.css');
 
-
-.carousel-control-next, .carousel-control-prev {
-    top: 45% !important;
-    width: 8% !important;
-    height: 6% !important;
-    opacity: 1 !important;
+/* Full height adjustments */
+.offcanvas {
+    height: 100% !important;
 }
 
-.seeDetailsArrow {
-    background: white;
-    border-radius: 100%;
-    height: 42px;
-    width: 42px;
+.offcanvas-body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 0;
+}
+
+.carousel-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.carousel-inner {
+    height: 100%;
+}
+
+.card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: none;
+}
+
+.card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.seeDetailsCardHeader {
+    font-weight: 500;
+    font-family: var(--suisse-works-regular) !important;
+    font-size: 52px;
+    letter-spacing: 0;
+    line-height: 67px;
+    margin-bottom: 27px;
+}
+
+.seeDetailsDesc {
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 1px;
+    line-height: 24px;
+    margin-bottom: 35px;
+    height: 100px;
+}
+
+.nutritionsPlan {
+    margin-top: 15px;
+}
+
+.nutrientBoxPlan {
+    text-align: center;
+}
+
+.nutritionDescPlan {
+    font-size: 12px;
+    font-family: 'Montserrat', sans-serif;
+    color: #555;
+}
+
+.nutritionValuePlan {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Stick the button to the bottom */
+.seeDetailsGetStartedBtn {
+    /* width: calc(100% - 40px);
+    max-width: 500px; */
+    margin: 0 0 35px 0;
+    border-radius: 0;
+}
+
+
+.seeDetailsItemContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Close Button on Top Right of Image */
+.close-btn {
+    top: 13px;
+    right: 22px;
+    font-size: 28px;
+    color: black;
     cursor: pointer;
+    width: 16px;
+    height: 16px;
+    z-index: 10;
+}
+
+/* Arrow Buttons Positioned in the Middle */
+.seeDetailsArrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.custom-prev {
+    left: 3px;
+}
+
+.custom-next {
+    right: 3px;
+}
+
+
+.carousel-control-prev, .carousel-control-next {
+    position: absolute;
+    top: 17%;
+    width: 10%;
+    height: 5%;
+    border-radius: 100px;
+    opacity: 1;
+    background: #fff;
+}
+
+.carousel-control-prev {
+    left: 2%;
+}
+
+.carousel-control-next {
+    right: 2%;
+}
+
+.avgMacroText {
+    font-size: 12px;
+    margin-bottom: 5px;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0 !important;
+    padding: 0 0 30px 0;
+    border-bottom: 1px solid #E6E6E6;
+    line-height: 26px;
+    opacity: 0.6;
+    font-style: italic;
 }
